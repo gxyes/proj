@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/movies.css">
+    <link rel="stylesheet" href="css/clear.css">
+    <title>电影页面</title>
+    <link rel="icon" href="images/title-lolg.png">
+</head>
+
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <div class="header-body">
+            <a href="index.html?123" class="logo">猫眼电影</a>
+            <div class="city">成都
+                <span class="caret"></span>
+            </div>
+            <div class="city-list">
+                <div class="now-city">
+                    定位城市: 定位失败
+                </div>
+                <div class="citys">
+                    <span class="icon"></span> 定位失败
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html?123" class="nav-model">首页</a></li>
+                    <li><a href="movies.html" class="nav-model active">电影</a></li>
+                    <li><a href="cinemas.html" class="nav-model">影院</a></li>
+                    <li class="nav-model">演出</li>
+                    <li class="nav-model">榜单</li>
+                    <li class="nav-model">热点</li>
+                    <li class="nav-model">商城</li>
+                </ul>
+            </div>
+            <div class="app-download">
+                <a href="#">
+                    <span class="phone"></span> APP下载
+                    <span class="caret"></span>
+
+                    <div class="appcode">
+                        <img src="images/phonecode.png" class="app-code"></img>
+                        <p class="down-tip">扫码下载APP</p>
+                        <p class="down-text">选座更优惠</p>
+                    </div>
+                </a>
+            </div>
+            <div class="search">
+                <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="找影视剧、影人、影院">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+            <div class="userimg">
+                <img src="images/user.png" alt="">
+                <span class="caret"></span>
+            </div>
+            <div class="userlogin">
+                <a href="login.html" class=" notlogin">登录</a>
+                <div class="islogin nologin">
+                    <a href="personal.html">个人中心</a>
+                    <a href="index.html">退出</a>
+                </div>
+            </div>
+
+
+    </header>
+    <!-- 导航 -->
+    <div class="movies-nav">
+        <div class="nav-body">
+            <div class="hotshowing">
+                <a href="#" class="active">
+                    正在热映
+                </a>
+            </div>
+            <div class="willshow">
+                <a href="#">
+                     即将上映
+                </a>
+            </div>
+            <div class="oldmovie">
+                <a href="#">
+                    经典影片
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 电影分类列表 -->
+    <div class="movie-list">
+        <div class="list-body">
+            <div class="list-model">
+                <div class="name">
+                    类型:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">爱情</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">喜剧</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">动画</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">剧情</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">恐怖</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">惊悚</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">科幻</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">动作</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">悬疑</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">犯罪</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">冒险</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">战争</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">奇幻</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">运动</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">家庭</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">古装</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">武侠</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">西部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">历史</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">传记</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">歌舞</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">黑色电影</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">短片</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">纪录片</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">其他</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-model">
+                <div class="name">
+                    区域:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">大陆</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">美国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">韩国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">日本</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">中国香港</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">中国台湾</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">泰国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">印度</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">法国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">英国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">俄罗斯</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">意大利</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">西班牙</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">德国</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">波兰</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">澳大利亚</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">伊朗</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">其他</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-model">
+                <div class="name">
+                    年代:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2020</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2019</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2018</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2017</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2016</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2015</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">2014</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2013</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2012</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">2011</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">2000-2010</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">90年代</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">80年代</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">70年代</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">更早</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 排序方式 -->
+        <div class="sort">
+            <div class="sort-model">
+                <div class="sort-icon"></div>
+                <span>按热门排序</span>
+            </div>
+            <div class="sort-model">
+                <div class="sort-icon"></div>
+                <span>按时间排序</span>
+            </div>
+            <div class="sort-model">
+                <div class="sort-icon"></div>
+                <span>按评论排序</span>
+            </div>
+        </div>
+    </div>
+    <!-- 电影列表 -->
+    <div class="movies-body">
+        <ul id="movies-body">
+        </ul>
+    </div>
+    <!-- 页面底部 -->
+    <div class="footer" style="visibility: visible;">
+        <p class="friendly-links">
+            关于猫眼 :
+            <a href="#" target="_blank">关于我们</a>
+            <span></span>
+            <a href="#" target="_blank">管理团队</a>
+            <span></span>
+            <a href="#" target="_blank">投资者关系</a> &nbsp;&nbsp;&nbsp;&nbsp; 友情链接 :
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团网</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan">格瓦拉</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
+            <span></span>
+            <a href="#" data-query="utm_source=maoyan_pc" target="_blank">欢喜首映</a>
+        </p>
+        <p class="friendly-links">
+            商务合作邮箱：v@maoyan.com 客服电话：10105335 违法和不良信息举报电话：4006018900
+        </p>
+        <p class="friendly-links">
+            用户投诉邮箱：tousujubao@meituan.com 舞弊线索举报邮箱：wubijubao@maoyan.com
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">中华人民共和国增值电信业务经营许可证 京B2-20190350</a>
+            <span></span>
+            <a href="#" target="_blank">营业性演出许可证 京演（机构）（2019）4094号</a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">广播电视节目制作经营许可证 （京）字第08478号</a>
+            <span></span>
+            <a href="#" target="_blank">网络文化经营许可证 京网文（2019）3837-369号 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">猫眼用户服务协议 </a>
+            <span></span>
+            <a href="#" target="_blank">猫眼平台交易规则总则 </a>
+            <span></span>
+            <a href="#" target="_blank">隐私政策 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="" target="_blank">京公网安备
+                11010102003232号</a>
+            <span></span>
+            <a href="#/" target="_blank">京ICP备16022489号</a>
+        </p>
+        <p>北京猫眼文化传媒有限公司</p>
+        <p>
+            ©<span class="my-footer-year">2020</span> 猫眼电影 maoyan.com</p>
+        <div class="certificate">
+            <a href="#" target="_blank">
+                <img src="http://p0.meituan.net/moviemachine/e54374ccf134d1f7b2c5b075a74fca525326.png">
+            </a>
+            <a href="#" target="_blank">
+                <img src="http://p1.meituan.net/moviemachine/805f605d5cf1b1a02a4e3a5e29df003b8376.png">
+            </a>
+            <a href="h#" target="_blank">
+                <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
+            </a>
+        </div>
+    </div>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/mock-min.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+
+</html>

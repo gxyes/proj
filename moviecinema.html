@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/movies.css">
+    <link rel="stylesheet" href="css/clear.css">
+    <link rel="stylesheet" href="css/cinemas.css">
+    <title>选择影院</title>
+    <link rel="icon" href="images/title-lolg.png">
+
+</head>
+
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <div class="header-body">
+            <a href="index.html?123" class="logo">猫眼电影</a>
+            <div class="city">成都
+                <span class="caret"></span>
+            </div>
+            <div class="city-list">
+                <div class="now-city">
+                    定位城市: 定位失败
+                </div>
+                <div class="citys">
+                    <span class="icon"></span> 定位失败
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html?123" class="nav-model">首页</a></li>
+                    <li><a href="movies.html" class="nav-model">电影</a></li>
+                    <li><a href="cinemas.html" class="nav-model">影院</a></li>
+                    <li class="nav-model">演出</li>
+                    <li class="nav-model">榜单</li>
+                    <li class="nav-model">热点</li>
+                    <li class="nav-model">商城</li>
+                </ul>
+            </div>
+            <div class="app-download">
+                <a href="#">
+                    <span class="phone"></span> APP下载
+                    <span class="caret"></span>
+
+                    <div class="appcode">
+                        <img src="images/phonecode.png" class="app-code"></img>
+                        <p class="down-tip">扫码下载APP</p>
+                        <p class="down-text">选座更优惠</p>
+                    </div>
+                </a>
+            </div>
+            <div class="search">
+                <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="找影视剧、影人、影院">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+            <div class="userimg">
+                <img src="images/user.png" alt="">
+                <span class="caret"></span>
+            </div>
+            <div class="userlogin ">
+                <div class="islogin ">
+                    <a href="personal.html">个人中心</a>
+                    <a href="index.html">退出</a>
+                </div>
+            </div>
+
+
+    </header>
+    <!-- 电影简介 -->
+    <div class="movie-top">
+        <div class="movie-banner">
+            <div class="movie-img">
+                <img src="" alt="" id="movie-img">
+            </div>
+            <div class="movie-data">
+                <div class="movie-name">
+                    <h2 class="name" id="moviename"></h2>
+                    <h2 class="othername" id="englishname"></h2>
+                    <p class="kind" id="kind"></p>
+                    <p class="area" id="adress"></p>
+                    <p class="time" id="time"></p>
+                </div>
+                <div class="movie-btn">
+                    <a href="#"><i></i> <span>想看</span></a>
+                    <a href="#"><i></i> <span>评分</span></a>
+                </div>
+                <div class="watching">
+                    <p class="name">想看数</p>
+                    <p class="wantnum">12421424524</p>
+                    <p class="money">累计票房</p>
+                    <p class="num">3000 <span>万</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 电影院分类列表 -->
+    <div class="movie-list">
+        <div class="list-body">
+            <div class="list-model">
+                <div class="name">
+                    类型:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">太平洋影院</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">万达影院</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">星美国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">CGV影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">横店电影院</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">承天嘉禾影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">卢米埃影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">金逸影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">大地影院</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">UME国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">SFC上影影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">保利国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">中影国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">越界影城和平电影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">幸福蓝海国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">新时代影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">耀莱成龙国际影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">恒大影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">百丽宫影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">百老汇影城</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">其他</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-model">
+                <div class="name">
+                    行政区:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">地铁附近</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">武侯区
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">郫县
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">锦江区
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">双流区
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">中国台湾</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">金牛区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">成华区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">新都区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">青羊区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">龙泉驿区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">温江区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">金堂县</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">素州市</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">都江堰市</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">新津县
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">青白江区</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">彭州市</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">邛味市</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">大邑县</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">蒲江县</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">简阳市</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">高新区</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-model">
+                <div class="name">
+                    特殊厅:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">lMAX厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">CGS中国巨幕厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">杜比全景声厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">Dolby Cinema厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">RealD厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">RealD6FL厅
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">LUXE巨幕厅
+                        </a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">4DX厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">DTS:X临境音厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">儿童厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">4K厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">4D厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">60帧厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ref="#">120帧/4K厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">巨幕厅</a>
+                    </li>
+                    <li class="tag-click">
+                        <a ef="#">CINITV厅</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-model">
+                <div class="name">
+                    服务:
+                </div>
+                <ul class="tags">
+                    <li class="tag-click active">
+                        <a href="#">全部</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">可改签</a>
+                    </li>
+                    <li class="tag-click">
+                        <a href="#">可退票</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 影院列表 -->
+    <div class="cinemas-body" id="cinemas-body">
+        <div class="intro">
+            <div class="intro-text">
+                <span>影院列表</span>
+                <span>
+                <a href="#">
+                    全部>
+                </a>
+            </span>
+            </div>
+        </div>
+    </div>
+    <!-- 页面底部 -->
+    <div class="footer" style="visibility: visible;">
+        <p class="friendly-links">
+            关于猫眼 :
+            <a href="#" target="_blank">关于我们</a>
+            <span></span>
+            <a href="#" target="_blank">管理团队</a>
+            <span></span>
+            <a href="#" target="_blank">投资者关系</a> &nbsp;&nbsp;&nbsp;&nbsp; 友情链接 :
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团网</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan">格瓦拉</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
+            <span></span>
+            <a href="#" data-query="utm_source=maoyan_pc" target="_blank">欢喜首映</a>
+        </p>
+        <p class="friendly-links">
+            商务合作邮箱：v@maoyan.com 客服电话：10105335 违法和不良信息举报电话：4006018900
+        </p>
+        <p class="friendly-links">
+            用户投诉邮箱：tousujubao@meituan.com 舞弊线索举报邮箱：wubijubao@maoyan.com
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">中华人民共和国增值电信业务经营许可证 京B2-20190350</a>
+            <span></span>
+            <a href="#" target="_blank">营业性演出许可证 京演（机构）（2019）4094号</a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">广播电视节目制作经营许可证 （京）字第08478号</a>
+            <span></span>
+            <a href="#" target="_blank">网络文化经营许可证 京网文（2019）3837-369号 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">猫眼用户服务协议 </a>
+            <span></span>
+            <a href="#" target="_blank">猫眼平台交易规则总则 </a>
+            <span></span>
+            <a href="#" target="_blank">隐私政策 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="" target="_blank">京公网安备
+                11010102003232号</a>
+            <span></span>
+            <a href="#/" target="_blank">京ICP备16022489号</a>
+        </p>
+        <p>北京猫眼文化传媒有限公司</p>
+        <p>
+            ©<span class="my-footer-year">2020</span> 猫眼电影 maoyan.com</p>
+        <div class="certificate">
+            <a href="#" target="_blank">
+                <img src="http://p0.meituan.net/moviemachine/e54374ccf134d1f7b2c5b075a74fca525326.png">
+            </a>
+            <a href="#" target="_blank">
+                <img src="http://p1.meituan.net/moviemachine/805f605d5cf1b1a02a4e3a5e29df003b8376.png">
+            </a>
+            <a href="h#" target="_blank">
+                <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
+            </a>
+        </div>
+    </div>
+
+    <script src="js/ajax.js"></script>
+    <script src="js/mock-min.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/movieCinema.js"></script>
+    <script>
+        // 获取电影院信息并渲染至页面
+        var url = decodeURI(window.location.href);
+        var backToPreUrl = url.split("?");
+        if (backToPreUrl[1] == null) {
+            alert(123)
+        } else {
+            moviename = decodeURIComponent(backToPreUrl[1]);
+            ajax({
+                url: '/moviescinema/getmoviescinema',
+                type: 'get',
+                data: moviename,
+                success: function(msg) {
+                    if (msg.isable) {
+                        let arr = {...msg.data[0]
+                        };
+                        document.getElementById('movie-img').src = arr.url;
+                        document.getElementById('englishname').innerText = arr.name;
+                        document.getElementById('moviename').innerText = arr.name;
+                        document.getElementById('kind').innerText = arr.kind;
+                        document.getElementById('adress').innerText = arr.adress;
+                        document.getElementById('time').innerText = arr.time;
+                    } else {
+                        alert('获取信息失败');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

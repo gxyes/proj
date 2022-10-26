@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/clear.css">
+    <title>首页</title>
+    <link rel="icon" href="images/title-lolg.png">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-body">
+            <a href="index.html?123" class="logo">猫眼电影</a>
+            <div class="city">成都
+                <span class="caret"></span>
+            </div>
+            <div class="city-list">
+                <div class="now-city">
+                    定位城市: 定位失败
+                </div>
+                <div class="citys">
+                    <span class="icon"></span> 定位失败
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html?123" class="nav-model active">首页</a></li>
+                    <li><a href="movies.html" class="nav-model">电影</a></li>
+                    <li><a href="cinemas.html" class="nav-model">影院</a></li>
+                    <li class="nav-model">演出</li>
+                    <li class="nav-model">榜单</li>
+                    <li class="nav-model">热点</li>
+                    <li class="nav-model">商城</li>
+                </ul>
+            </div>
+            <div class="app-download">
+                <a href="#">
+                    <span class="phone"></span> APP下载
+                    <span class="caret"></span>
+
+                    <div class="appcode">
+                        <img src="images/phonecode.png" class="app-code"></img>
+                        <p class="down-tip">扫码下载APP</p>
+                        <p class="down-text">选座更优惠</p>
+                    </div>
+                </a>
+            </div>
+            <div class="search">
+                <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="找影视剧、影人、影院">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+            <div class="userimg">
+                <img src="images/user.png" alt="">
+                <span class="caret"></span>
+            </div>
+            <div class="userlogin">
+                <a href="login.html" class=" notlogin">登录</a>
+                <div class="islogin nologin">
+                    <a href="personal.html">个人中心</a>
+                    <a href="index.html">退出</a>
+                </div>
+            </div>
+    </header>
+    <!-- 轮播图 -->
+    <div class="wrap" id="wrap">
+        <ul class="content"></ul>
+        <a href="javascript:;" class="prev">&#60;</a>
+        <a href="javascript:;" class="next">&#62;</a>
+    </div>
+    <!-- 页面主体 -->
+    <div class="container">
+        <div class="main">
+            <!-- 正在热映 -->
+            <div class="hot-movie">
+                <h2>正在热映（4部）</h2>
+                <div class="movies" id="hotmovies">
+                </div>
+            </div>
+            <!-- 即将上映 -->
+            <div class="movie-box">
+                <div class="movie-header">
+                    <h2>即将上映（115部）</h2>
+                    <a href="#">
+                        <span>全部></span>
+                    </a>
+                </div>
+                <div class="movies">
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月31日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie2.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>10月2日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie3.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>11月1日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie4.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月23日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月31日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月31日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月31日上映</p>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>46461661人想看</p>
+                        <button onclick="alert('123')">预告片</button>
+                        <button onclick="alert('123')">预售</button>
+                        <p>9月31日上映</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 热播电影 -->
+            <div class="movie-box">
+                <div class="movie-header c hotmovie ">
+                    <h2>热播电影（115部）</h2>
+                    <a href="#">
+                        <span>全部></span>
+                    </a>
+                </div>
+                <div class="movies movies-hot">
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie2.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie3.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie4.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 喜剧电影 -->
+            <div class="movie-box">
+                <div class="movie-header">
+                    <h2>喜剧电影（115部）</h2>
+                    <a href="#">
+                        <span>全部></span>
+                    </a>
+                </div>
+                <div class="movies">
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie2.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie3.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie4.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 动作电影 -->
+            <div class="movie-box">
+                <div class="movie-header c hotmovie ">
+                    <h2>动作电影（125部）</h2>
+                    <a href="#">
+                        <span>全部></span>
+                    </a>
+                </div>
+                <div class="movies movies-hot">
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie2.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie3.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie4.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 恐怖片 -->
+            <div class="movie-box">
+                <div class="movie-header">
+                    <h2>恐怖电影（115部）</h2>
+                    <a href="#">
+                        <span>全部></span>
+                    </a>
+                </div>
+                <div class="movies">
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie2.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie3.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie4.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                    <div class="movies-model">
+                        <a href="">
+                            <img src="images/hotmovie1.png" alt="" srcset="">
+                        </a>
+                        <p>9.0分</p>
+                        <button class="buynow">立即购票</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 侧边栏 -->
+        <div class="aside">
+            <!-- 今日票房 -->
+            <div class="rank">
+                <h2>今日票房</h2>
+                <div class="ranklist">
+                    <ul class="ranks">
+                        <li class=" rangk-item-first clearfix">
+                            <a href="#">
+                                <div class="first-item clearfix">
+                                    <img src="images/rank.png" alt="" srcset="">
+                                </div>
+                                <p class="name">爱宠大机密2</p>
+                                <p class="money">0.72万</p>
+                            </a>
+                        </li>
+                        <li class="rank-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">2</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="index-money">0.00万</span>
+
+                            </a>
+                        </li>
+                        <li class="rank-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">3</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="index-money">0.00万</span>
+                            </a>
+                        </li>
+                        <li class="rank-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">4</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="index-money">0.00万</span>
+
+                            </a>
+                        </li>
+                        <li class="rank-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">5</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="index-money">0.00万</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 今日大盘 -->
+            <div class="aside-total">
+                <h2 class="total-nav">今日大盘</h2>
+                <div class="total-body">
+                    <h2>0.6 <span>万</span></h2>
+                    <span class="more">查看更多></span>
+                    <p class="time"><span>北京时间14:48:31</span> <span>猫眼专业版实时票房数据</span></p>
+                </div>
+            </div>
+            <!-- 最受期待 -->
+            <div class="hope">
+                <h2>最受期待 <span>查看完整榜单></span></h2>
+                <div class="hope-body">
+                    <ul class="hope-list">
+                        <li class="hope-item-top1">
+                            <a href="#">
+                                <div class="hope-img">
+                                    <img src="images/hope1.png" alt="">
+                                </div>
+                                <div class="hope-text">
+                                    <p class="hope-name">姜子牙</p>
+                                    <p class="hope-time">上映时间：2020</p>
+                                    <p class="hope-num">932707人想看</p>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="hope-item-top">
+                            <a href="#">
+                                <div class="hope-img">
+                                    <img src="images/hope2.png" alt="">
+                                </div>
+                                <p class="hope-name">哪吒重生</p>
+                                <p class="hope-num">932707人想看</p>
+                            </a>
+                        </li>
+                        <li class="hope-item-top left">
+                            <a href="#">
+                                <div class="hope-img">
+                                    <img src="images/hope3.png" alt="">
+                                </div>
+                                <p class="hope-name">唐人街探案3</p>
+                                <p class="hope-num">932707人想看</p>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">4</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">5</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">6</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">7</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">8</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">9</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                        <li class="hope-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">10</i>
+                                    <span>冰雪奇缘2</span>
+                                </div>
+                                <span class="hope-num">932707人想看</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- top100 -->
+            <div class="top">
+                <h2>TOP 100 <span>查看完整榜单></span></h2>
+                <div class="toplist">
+                    <ul class="topone">
+                        <li class=" top-item-first clearfix">
+                            <a href="#">
+                                <div class="first-item clearfix">
+                                    <img src="images/top1.png" alt="" srcset="">
+                                </div>
+                                <p class="name">活着</p>
+                                <p class="money">9.0分</p>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">2</i>
+                                    <span>钢琴家</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">3</i>
+                                    <span>勇敢的心</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">4</i>
+                                    <span>阿飞正传</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">5</i>
+                                    <span>射雕英雄传之东成西就</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">6</i>
+                                    <span>爱回家</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">7</i>
+                                    <span>初恋这件小事</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">8</i>
+                                    <span>泰坦尼克号</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">9</i>
+                                    <span>迁徙的鸟</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                        <li class="top-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">10</i>
+                                    <span>蝙蝠侠：黑暗骑士</span>
+                                </div>
+                                <span class="index-money">8.8分</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 热门影人 -->
+            <div class="people">
+                <h2>热门影人</h2>
+                <div class="peoplelist">
+                    <ul class="peoples">
+                        <li class=" people-item-first clearfix">
+                            <a href="#">
+                                <div class="first-item clearfix">
+                                    <img src="images/people.png" alt="" srcset="">
+                                </div>
+                                <p class="name">大张伟</p>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">2</i>
+                                    <span>蔡国庆</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">3</i>
+                                    <span>黄一山</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">4</i>
+                                    <span>蔡轩正</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">5</i>
+                                    <span>平安</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">6</i>
+                                    <span>王源</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">7</i>
+                                    <span>小黑</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">8</i>
+                                    <span>郁可唯</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">9</i>
+                                    <span>许魏洲</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="people-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">10</i>
+                                    <span>王力宏</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 娱乐热点 -->
+            <div class="hotspot">
+                <h2>娱乐热点</h2>
+                <div class="hotspotlist">
+                    <ul class="hotspots">
+                        <li class=" hotspot-item-first clearfix">
+                            <a href="#">
+                                <div class="first-item clearfix">
+                                    <img src="images/hotspot.png" alt="" srcset="">
+                                </div>
+                                <p class="name">《什刹海》今晚央一开播...</p>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">2</i>
+                                    <span>反差萌!动画电影《杨戬》“哮天犬” 形象首次曝光</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index index-hot">3</i>
+                                    <span>《民初奇人传》火热收官奇趣甜三大法宝发力赢口碑</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">4</i>
+                                    <span>电影《再见吧!少年》曝阵容刘敏涛荣梓杉大银幕..</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">5</i>
+                                    <span>布拉德:皮特参演《死侍2》导演全新动作片后者曾...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">6</i>
+                                    <span>《漂亮书生》首曝剧照鞠婧祎宋威龙携“漂亮战队...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">7</i>
+                                    <span>《温暖的抱抱》首曝预告常远李沁邂逅妙手“神经...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">8</i>
+                                    <span>汤姆汉克斯一让每一 份人生， 都成为充满期待的..</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">9</i>
+                                    <span>电影《至暗陷阱》至暗双雄霸气亮相明暗对决一触..</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="hotspot-item">
+                            <a href="#">
+                                <div class="index-box">
+                                    <i class="index">10</i>
+                                    <span>《什刹海》央一定档7.10， “多彩京韵” 版海报今...</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页面底部 -->
+    <div class="footer" style="visibility: visible;">
+        <p class="friendly-links">
+            关于猫眼 :
+            <a href="#" target="_blank">关于我们</a>
+            <span></span>
+            <a href="#" target="_blank">管理团队</a>
+            <span></span>
+            <a href="#" target="_blank">投资者关系</a> &nbsp;&nbsp;&nbsp;&nbsp; 友情链接 :
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团网</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan">格瓦拉</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
+            <span></span>
+            <a href="#" data-query="utm_source=maoyan_pc" target="_blank">欢喜首映</a>
+        </p>
+        <p class="friendly-links">
+            商务合作邮箱：v@maoyan.com 客服电话：10105335 违法和不良信息举报电话：4006018900
+        </p>
+        <p class="friendly-links">
+            用户投诉邮箱：tousujubao@meituan.com 舞弊线索举报邮箱：wubijubao@maoyan.com
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">中华人民共和国增值电信业务经营许可证 京B2-20190350</a>
+            <span></span>
+            <a href="#" target="_blank">营业性演出许可证 京演（机构）（2019）4094号</a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">广播电视节目制作经营许可证 （京）字第08478号</a>
+            <span></span>
+            <a href="#" target="_blank">网络文化经营许可证 京网文（2019）3837-369号 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">猫眼用户服务协议 </a>
+            <span></span>
+            <a href="#" target="_blank">猫眼平台交易规则总则 </a>
+            <span></span>
+            <a href="#" target="_blank">隐私政策 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="" target="_blank">京公网安备
+            11010102003232号</a>
+            <span></span>
+            <a href="#/" target="_blank">京ICP备16022489号</a>
+        </p>
+        <p>北京猫眼文化传媒有限公司</p>
+        <p>
+            ©<span class="my-footer-year">2020</span> 猫眼电影 maoyan.com</p>
+        <div class="certificate">
+            <a href="#" target="_blank">
+                <img src="http://p0.meituan.net/moviemachine/e54374ccf134d1f7b2c5b075a74fca525326.png">
+            </a>
+            <a href="#" target="_blank">
+                <img src="http://p1.meituan.net/moviemachine/805f605d5cf1b1a02a4e3a5e29df003b8376.png">
+            </a>
+            <a href="h#" target="_blank">
+                <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
+            </a>
+        </div>
+    </div>
+
+
+    <script src="js/ajax.js"></script>
+    <script src="js/mock-min.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

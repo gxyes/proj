@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/clear.css">
+    <link rel="stylesheet" href="css/cinemadatas.css">
+    <title>影院详情</title>
+    <link rel="icon" href="images/title-lolg.png">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-body">
+            <a href="index.html?123" class="logo">猫眼电影</a>
+            <div class="city">成都
+                <span class="caret"></span>
+            </div>
+            <div class="city-list">
+                <div class="now-city">
+                    定位城市: 定位失败
+                </div>
+                <div class="citys">
+                    <span class="icon"></span> 定位失败
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html?123" class="nav-model">首页</a></li>
+                    <li><a href="movies.html" class="nav-model">电影</a></li>
+                    <li><a href="cinemas.html" class="nav-model">影院</a></li>
+                    <li class="nav-model">演出</li>
+                    <li class="nav-model">榜单</li>
+                    <li class="nav-model">热点</li>
+                    <li class="nav-model">商城</li>
+                </ul>
+            </div>
+            <div class="app-download">
+                <a href="#">
+                    <span class="phone"></span> APP下载
+                    <span class="caret"></span>
+
+                    <div class="appcode">
+                        <img src="images/phonecode.png" class="app-code"></img>
+                        <p class="down-tip">扫码下载APP</p>
+                        <p class="down-text">选座更优惠</p>
+                    </div>
+                </a>
+            </div>
+            <div class="search">
+                <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="找影视剧、影人、影院">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+            <div class="userimg">
+                <img src="images/user.png" alt="">
+                <span class="caret"></span>
+            </div>
+            <div class="userlogin">
+                <a href="login.html" class=" notlogin">登录</a>
+                <div class="islogin nologin">
+                    <a href="personal.html">个人中心</a>
+                    <a href="index.html">退出</a>
+                </div>
+            </div>
+    </header>
+    <!-- 页面主体 -->
+    <div class="movie-top">
+        <div class="movie-banner">
+            <div class="movie-img">
+                <img id="cinemaimg" src="https://p1.meituan.net/deal/201208/22/1_0822151022.jpg@292w_292h_1e_1c" alt="" id="movie-img">
+            </div>
+            <div class="movie-data">
+                <div class="movie-name">
+                    <h2 class="name" id="cinemaname"></h2>
+                    <h2 class="othername" id="adress"></h2>
+                    <p class="kind" id="phonenum"></p>
+                </div>
+                <div class="movie-btn">
+                    <p>影院服务：</p>
+                    <p>
+                        <span>改签</span>
+                        <span>未取票用户放映前60分钟可改签</span>
+                    </p>
+                    <p>
+                        <span>3D眼镜</span>
+                        <span>免押金</span>
+                    </p>
+                    <p>
+                        <span>儿童优惠</span>
+                        <span>1.3米以下小朋友可享受无座免票</span>
+                    </p>
+                    <p>
+                        <span>可停车</span>
+                        <span>目前免费，详请现场咨询影城</span>
+                    </p>
+                </div>
+                <div class="map">
+                    <img src="images/map.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mian">
+        <div class="contents">
+            <div class="list_movie">
+                <ul>
+                    <li class="activeimg"><img id="movieimg" src="https://p0.meituan.net/movie/62fb5d1fbfba986fffe4f0f5a6b8181890968.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p0.meituan.net/movie/7b40e56e644cd04915e6e9cc09c1bdb1331242.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p1.meituan.net/movie/d32c9041e6ad9ec44f03ce7760d0373b102277.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p1.meituan.net/movie/f99deeeeb74108ab009b79bb59233d5e304355.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p1.meituan.net/movie/04de313fdd7f3835563d3c4bdfb980735556062.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p0.meituan.net/movie/02cfa2cbb87de6e8564db0fcf0fba535211625.jpg@106w_145h_1e_1c" alt=""></li>
+                    <li><img src="https://p0.meituan.net/movie/e9bcb46638735a6a7d5a90d416343ba8189361.jpg@106w_145h_1e_1c" alt=""></li>
+                </ul>
+                <div class="contor">
+                    <i class="previ">
+                        <img src="images/left.png" alt="">
+                    </i>
+                    <i class="next">
+                        <img src="images/right.png" alt="">
+                    </i>
+                </div>
+            </div>
+            <div class="nowmovie">
+                <div class="pf">
+                    <h3 id="moviename">
+                        命运之夜-天之杯 第一章:恶兆之花
+                    </h3>
+                    <p>
+                        <span id="movienum">8.4</span>
+                        <span>分</span>
+                    </p>
+                </div>
+                <div class="xq">
+                    <div>
+                        <span>时长 :</span>
+                        <span>120分钟</span>
+                    </div>
+                    <div>
+                        <span>类型 :</span>
+                        <span id="moviekind">动画</span>
+                    </div>
+                    <div>
+                        <span>主演 :</span>
+                        <span id="moviestar">卫宫士郎,间桐樱,远坂凛</span>
+                    </div>
+                </div>
+            </div>
+            <div class="date_list">
+                <ul>
+                    <li>观影时间:</li>
+                    <li class="activeli">今天 7月15日</li>
+                    <li>明天 7月16日</li>
+                    <li>后天 7月17日</li>
+                    <li>周六 7月18日</li>
+                </ul>
+            </div>
+            <div class="session">
+                <ul>
+                    <li>
+                        <span>放映时间</span>
+                        <span>语言版本</span>
+                        <span>放映厅</span>
+                        <span style="color: rgb(58, 58, 58);">售价(元)</span>
+                        <span>购票选座</span>
+                    </li>
+                    <li>
+                        <span>13:45</span>
+                        <span>日语2D</span>
+                        <span>5号激光厅</span>
+                        <span>￥66</span>
+                        <span class="btn" onclick="jump()">购票选座</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 页面底部 -->
+    <div class="footer" style="visibility: visible;">
+        <p class="friendly-links">
+            关于猫眼 :
+            <a href="#" target="_blank">关于我们</a>
+            <span></span>
+            <a href="#" target="_blank">管理团队</a>
+            <span></span>
+            <a href="#" target="_blank">投资者关系</a> &nbsp;&nbsp;&nbsp;&nbsp; 友情链接 :
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团网</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan">格瓦拉</a>
+            <span></span>
+            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
+            <span></span>
+            <a href="#" data-query="utm_source=maoyan_pc" target="_blank">欢喜首映</a>
+        </p>
+        <p class="friendly-links">
+            商务合作邮箱：v@maoyan.com 客服电话：10105335 违法和不良信息举报电话：4006018900
+        </p>
+        <p class="friendly-links">
+            用户投诉邮箱：tousujubao@meituan.com 舞弊线索举报邮箱：wubijubao@maoyan.com
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">中华人民共和国增值电信业务经营许可证 京B2-20190350</a>
+            <span></span>
+            <a href="#" target="_blank">营业性演出许可证 京演（机构）（2019）4094号</a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">广播电视节目制作经营许可证 （京）字第08478号</a>
+            <span></span>
+            <a href="#" target="_blank">网络文化经营许可证 京网文（2019）3837-369号 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="#" target="_blank">猫眼用户服务协议 </a>
+            <span></span>
+            <a href="#" target="_blank">猫眼平台交易规则总则 </a>
+            <span></span>
+            <a href="#" target="_blank">隐私政策 </a>
+        </p>
+        <p class="friendly-links  credentials">
+            <a href="" target="_blank">京公网安备
+            11010102003232号</a>
+            <span></span>
+            <a href="#/" target="_blank">京ICP备16022489号</a>
+        </p>
+        <p>北京猫眼文化传媒有限公司</p>
+        <p>
+            ©<span class="my-footer-year">2020</span> 猫眼电影 maoyan.com</p>
+        <div class="certificate">
+            <a href="#" target="_blank">
+                <img src="http://p0.meituan.net/moviemachine/e54374ccf134d1f7b2c5b075a74fca525326.png">
+            </a>
+            <a href="#" target="_blank">
+                <img src="http://p1.meituan.net/moviemachine/805f605d5cf1b1a02a4e3a5e29df003b8376.png">
+            </a>
+            <a href="h#" target="_blank">
+                <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
+            </a>
+        </div>
+    </div>
+
+
+    <script src="js/ajax.js"></script>
+    <script src="js/mock-min.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/cinemadatas.js"></script>
+</body>
+
+</html>
