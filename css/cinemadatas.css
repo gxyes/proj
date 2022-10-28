@@ -212,6 +212,57 @@
 .mian .contents .session {
   width: 100%;
 }
+.mian .contents .session ul div li {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 90px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+.mian .contents .session ul div li:nth-child(1) span {
+  color: #3a3a3a;
+  font-size: 16px;
+  font-weight: 600;
+}
+.mian .contents .session ul div li:nth-child(odd) {
+  background-color: rgba(238, 238, 238, 0.658);
+}
+.mian .contents .session ul div li span {
+  display: block;
+  width: 100px;
+  text-align: center;
+}
+.mian .contents .session ul div li span:nth-child(1) {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a3a3a;
+}
+.mian .contents .session ul div li span:nth-child(4) {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e62828;
+}
+.mian .contents .session ul div li .btn {
+  display: block;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 90px;
+  height: 30px;
+  background-color: #e62828;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 0 5px #e62828;
+  font-size: 14px;
+}
+.mian .contents .session ul div li .btn:hover {
+  background-color: #c01212;
+  color: white;
+}
+
 .mian .contents .session ul li {
   display: flex;
   justify-content: space-between;

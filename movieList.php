@@ -26,9 +26,9 @@
     }
     print_r($all_select_element_index);
 
-    $genre_string = "Type='$genre',";
-    $region_string = "Region='$region',";
-    $year_string = "ShowTime='$year',";
+    $genre_string = "Type = '$genre' and ";
+    $region_string = "Region = '$region' and ";
+    $year_string = "ShowTime = '$year' and ";
 
     $sql_string = "";
 
@@ -41,8 +41,8 @@
     if (in_array(2, $all_select_element_index)) {
         $sql_string .= $year_string;
     }
-    print_r($sql_string);
-    $sql_string = rtrim($sql_string,",");
+    // print_r($sql_string);
+    $sql_string = rtrim($sql_string," and ");
     $base = "select * from movies where ";
     
     if (strlen($sql_string) != 0) {
@@ -56,8 +56,9 @@
     $drop_result = $db->query($drop_sql);
 
     $combine_select_create = "create table movielist as ".$select_sql;
+    print_r($combine_select_create);
     $combine_result = $db->query($combine_select_create);
 
-    print_r($combine_select_create);
-    // header('location:movies.php');
+    
+    header('location:movies.php');
 ?>

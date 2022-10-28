@@ -94,8 +94,8 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model active">Theatre</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Theatre</a></li>
+                    <li><a href="#" class="nav-model">Forum</a></li>
+                    <li><a href="cinemas.html" class="nav-model">Shop</a></li>
                 </ul>
             </div>
             <div class="app-download">
@@ -272,11 +272,22 @@
             };
             $num_theatres = count($records);
 
+            $sql_movies = "select * from movies";
+            $result_movies = $db->query($sql_movies);
+            $records_movies=array();
+            while($row=$result_movies->fetch_assoc())
+            {
+                $records_movies[]=$row;
+            };
+            $num_movies = count($records_movies);
+
             for ($index=0; $index<$num_theatres; $index++) {
                 $theatre_name = $records[$index]['Name'];
                 $theatre_address = $records[$index]['Address'];
                 $theatre_service = $records[$index]['Service'];
                 $theatre_special = $records[$index]['Special'];
+                $theatre_distance = $records[$index]['Distance'];
+                $random_price = $records_movies[$index]['Price'];
 
                 echo "<div class='cineam-model'>";
 
@@ -290,13 +301,13 @@
                 echo "<div class='cineam-money'>";
 
                 echo "<div class='price'>";
-                echo "<p><span>$10</span></p>";
-                echo "<p>6km</p>";
+                echo "<p><span>From $$random_price</span></p>";
+                echo "<p>$theatre_distance</p>";
 
                 echo "</div>";
 
                 echo "<div class='buy-btn'>";
-                echo "<a href='cinemadatas.php?Name=$theatre_name'> Buy </a>";
+                echo "<a href='cinemadatas.php?Name=$theatre_name&Movie='''> Buy </a>";
                 echo "</div>";
 
                 echo "</div>";

@@ -114,7 +114,7 @@
             <!-- On show -->
             <div class="hot-movie">
                 <?php
-                    $sql = "select * from movies where Status = 'Coming Soon'";
+                    $sql = "select * from movies where Status = 'Now Showing'";
                     $result = $db->query($sql);
                     $records=array();
                     while($row=$result->fetch_assoc())
@@ -235,7 +235,7 @@
                     $num_movies = count($records);
                 ?>
                 <div class="movie-header">
-                    <h2>Coming Soon</h2>
+                    <h2>Comedy</h2>
                     <a href="#">
                         <?php
                             echo "<span>$num_movies Movies</span>" 
@@ -283,7 +283,7 @@
                     $num_movies = count($records);
                 ?>
                 <div class="movie-header">
-                    <h2>Coming Soon</h2>
+                    <h2>Action</h2>
                     <a href="#">
                         <?php
                             echo "<span>$num_movies Movies</span>" 

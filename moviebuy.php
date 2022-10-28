@@ -186,7 +186,7 @@
     </div>
 
     <!-- cinemas -->
-    <div class="movie-list">
+    <!-- <div class="movie-list">
         <div class="list-body">
             <div class="list-model">
                 <div class="name">
@@ -306,15 +306,67 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <!-- Theater list -->
     <div class="cinemas-body" id="cinemas-body">
         <div class="intro">
             <div class="intro-text">
                 <span>Theatres</span>
             </div>
         </div>
+        <?php
+            $sql = "select * from theatrelist";
+            $result = $db->query($sql);
+            $records=array();
+            while($row=$result->fetch_assoc())
+            {
+                $records[]=$row;
+            };
+            $num_theatres = count($records);
+
+            $sql_movies = "select * from movies";
+            $result_movies = $db->query($sql_movies);
+            $records_movies=array();
+            while($row=$result_movies->fetch_assoc())
+            {
+                $records_movies[]=$row;
+            };
+            $num_movies = count($records_movies);
+
+            for ($index=0; $index<$num_theatres; $index++) {
+                $theatre_name = $records[$index]['Name'];
+                $theatre_address = $records[$index]['Address'];
+                $theatre_service = $records[$index]['Service'];
+                $theatre_special = $records[$index]['Special'];
+                $theatre_distance = $records[$index]['Distance'];
+                $random_price = $records_movies[$index]['Price'];
+
+                echo "<div class='cineam-model'>";
+
+                echo "<div class='cineam-name'>";
+                echo "<p><a href='#'>$theatre_name</a></p>";
+                echo "<p>$theatre_address</p>";
+                echo "<span class='hint'>$theatre_service</span>";
+                echo "<span class='hint'>$theatre_special</span>";
+                echo "</div>";
+
+                echo "<div class='cineam-money'>";
+
+                echo "<div class='price'>";
+                echo "<p><span>From $$random_price</span></p>";
+                echo "<p>$theatre_distance</p>";
+
+                echo "</div>";
+
+                echo "<div class='buy-btn'>";
+                echo "<a href='cinemadatas.php?Name=$theatre_name&Movie=$movie_name'> Buy </a>";
+                echo "</div>";
+
+                echo "</div>";
+                echo "</div>";
+            }
+        ?>
+
     </div>
 
     <!-- bottom -->
@@ -378,40 +430,6 @@
             </a>
         </div>
     </div>
-
-    <script src="js/ajax.js"></script>
-    <script src="js/mock-min.js"></script>
-    <script src="js/server.js"></script>
-    <script src="js/movieCinema.js"></script>
-    <script>
-        // 获取电影院信息并渲染至页面
-        var url = decodeURI(window.location.href);
-        var backToPreUrl = url.split("?");
-        if (backToPreUrl[1] == null) {
-            alert(123)
-        } else {
-            moviename = decodeURIComponent(backToPreUrl[1]);
-            ajax({
-                url: '/moviescinema/getmoviescinema',
-                type: 'get',
-                data: moviename,
-                success: function(msg) {
-                    if (msg.isable) {
-                        let arr = {...msg.data[0]
-                        };
-                        document.getElementById('movie-img').src = arr.url;
-                        document.getElementById('englishname').innerText = arr.name;
-                        document.getElementById('moviename').innerText = arr.name;
-                        document.getElementById('kind').innerText = arr.kind;
-                        document.getElementById('adress').innerText = arr.adress;
-                        document.getElementById('time').innerText = arr.time;
-                    } else {
-                        alert('获取信息失败');
-                    }
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>

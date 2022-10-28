@@ -13,13 +13,31 @@
         function changeMovie(id)
         {
             var id = Number(id) + 1;
-            console.log(id);
+            // console.log(id);
+
             var card_name = "movie" + String(id);
             var movie_card = document.getElementById(card_name);
             movie_card.style = "display:''";
 
+            var session_name = "session" + String(id);
+            var session_card = document.getElementById(session_name);
+            session_card.style = "display:''";
+            // console.log(session_card);
+
             var img = document.getElementById(String(id-1));
             img.style = "box-shadow: 3px 3px red, -1em 0 .4em olive";
+
+            var today = document.getElementsByClassName("today")[0];
+            var tmr = document.getElementsByClassName("tmr")[0];
+            var tmr1 = document.getElementsByClassName("tmr1")[0];
+            var tmr2 = document.getElementsByClassName("tmr2")[0];
+            
+            today.id = "today_" + id;
+            tmr.id = "tmr_" + id;
+            tmr1.id = "tmr1_" + id;
+            tmr2.id = "tmr2_" + id;
+
+            // var movie_name = document.getElementById(card_name).children[0].children[0].innerHTML;
 
             for (var i = 1; i <=6; i++)
             {
@@ -28,12 +46,123 @@
                     var discard_card_name = "movie" + String(i);
                     var discard_movie_card = document.getElementById(discard_card_name);
                     discard_movie_card.style.display = "none";
+
+                    var discard_session_name = "session" + String(i);
+                    // console.log(discard_session_name);
+                    var discard_session_card = document.getElementById(discard_session_name);
+                    discard_session_card.style.display = "none";
                 }
                 if (i != id) {
                     var img = document.getElementById(String(i-1));
                     img.style = "";
                 }
             }
+        }
+    </script>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $databasename = "moviefever";
+
+        $db = new mysqli($servername, $username, $password, $databasename);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Wrong!";
+            exit;
+        }
+
+        $sql = "select * from movies where Status='Now Showing'";
+        $result = $db->query($sql);
+        $records=array();
+        while($row=$result->fetch_assoc())
+        {
+            $records[]=$row;
+        };
+        $num_movies = count($records);
+
+        $selected_movie_index = 0;
+        for ($index=0; $index<6; $index++) {
+            $movie = $records[$index];
+            if ($_GET["Movie"] == $movie["Name"]) {
+                $selected_movie_index = $index;
+            }
+        }
+    ?>
+    <script language="javascript">
+        window.addEventListener('load', function() {
+            // today
+            var day1 = new Date();
+            day1.setTime(day1.getTime());
+            var s1 = day1.getFullYear()+"-" + (day1.getMonth()+1) + "-" + day1.getDate();
+
+            var today = document.getElementsByClassName("today")[0];
+            // console.log(today);
+            today.innerHTML = "Today  " + s1;
+
+            // tomorrow
+            var day2 = new Date();
+            day2.setTime(day2.getTime()+24*60*60*1000);
+            var s2 = day2.getFullYear()+"-" + (day2.getMonth()+1) + "-" + day2.getDate();
+
+            var tomorrow = document.getElementsByClassName("tmr")[0];
+            tomorrow.innerHTML = "Tomorrow  " + s2;
+         
+            // tomorrow + 1
+            var day3 = new Date();
+            day3.setTime(day3.getTime()+2*24*60*60*1000);
+            var s3 = day3.getFullYear()+"-" + (day3.getMonth()+1) + "-" + day3.getDate();
+
+            var tomorrow1 = document.getElementsByClassName("tmr1")[0];
+            tomorrow1.innerHTML = s3;
+
+            // tomorrow + 2
+            var day4 = new Date();
+            day4.setTime(day4.getTime()+3*24*60*60*1000);
+            var s4 = day4.getFullYear()+"-" + (day4.getMonth()+1) + "-" + day4.getDate();
+
+            var tomorrow2 = document.getElementsByClassName("tmr2")[0];
+            tomorrow2.innerHTML = s4;
+
+            var selected_movie = `<?php echo $_GET["Movie"]?>`;
+        
+            if (selected_movie != "") {
+                var selected_movie_index = `<?php echo $selected_movie_index?>`;
+                console.log(selected_movie_index);
+                changeMovie(selected_movie_index);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function changeTimetable(id) {
+            console.log(id);
+            var date_list = ["today", "tmr", "tmr1", "tmr2"];
+            id_index = Number(id.split("_")[1]);
+            id = id.split("_")[0];
+
+            var timetable_id = id + "_timetable";
+            var timetable = document.getElementsByClassName(timetable_id)[id_index-1];        
+            var session = timetable.parentElement.parentElement.id;
+            timetable_id = timetable_id + "_" + session;
+
+            console.log(timetable_id);
+            timetable = document.getElementById(timetable_id);  
+            timetable.style.display = 'block';
+
+            for (i=0;i<date_list.length;i++){
+                if (date_list[i] != id) {
+                    var discard_timetable_id = date_list[i] + "_timetable";
+                    var discard_timetable = document.getElementsByClassName(discard_timetable_id)[id_index-1];
+
+                    var session = discard_timetable.parentElement.parentElement.id;
+                    
+                    discard_timetable_id = discard_timetable_id + "_" + session;
+                    discard_timetable = document.getElementById(discard_timetable_id);
+                    console.log(discard_timetable_id);
+                    discard_timetable.style.display = 'none';
+                }
+            }            
         }
     </script>
 
@@ -55,6 +184,8 @@
         }
 
         $name = $_GET['Name'];
+        $selected_movie_name = "";
+        // print_r($name);
 
         $sql = "select * from currentUser";
         $result = $db->query($sql);
@@ -63,6 +194,9 @@
 
         if ($_GET["current"]) {
             $current_user = $_GET["current"];
+        }
+        if ($_GET["Movie"]) {
+            $selected_movie_name = $_GET["Movie"];
         }
     ?>
     <header>
@@ -185,7 +319,13 @@
                         for ($index=0; $index<6; $index++)
                         {
                             $img_url = $records[$index]["URL"];
-                            echo "<li class='activeimg' id='$index' onclick=changeMovie(id)><img id='movieimg' src='$img_url' alt='' style='width:100%; height:145px'></li>";
+                            $movie_name = $records[$index]["Name"];
+                            if ($index == 0) {
+                                echo "<li class='activeimg' id='$index' onclick=changeMovie(id) style='box-shadow: 3px 3px red, -1em 0 .4em olive'><img id='movieimg' src='$img_url' alt='' style='width:100%; height:145px'></li>";
+                            }
+                            else {
+                                echo "<li class='activeimg' id='$index' onclick=changeMovie(id)><img id='movieimg' src='$img_url' alt='' style='width:100%; height:145px'></li>";
+                            }
                         }
                     ?>
                 </ul>
@@ -379,60 +519,790 @@
                 ?>
             </div>
 
-            <!-- <div class="nowmovie" style="display:none">
-                <div class="pf">
-                    
-                    <h3 id="moviename">
-                        命运之夜-天之杯 第一章:恶兆之花
-                    </h3>
-                    <p>
-                        <span id="movienum">8.4</span>
-                        <span>分</span>
-                    </p>
-                </div>
-                <div class="xq">
-                    <div>
-                        <span>时长 :</span>
-                        <span>120分钟</span>
-                    </div>
-                    <div>
-                        <span>类型 :</span>
-                        <span id="moviekind">动画</span>
-                    </div>
-                    <div>
-                        <span>主演 :</span>
-                        <span id="moviestar">卫宫士郎,间桐樱,远坂凛</span>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="date_list">
                 <ul>
                     <li>Time Slots:</li>
-                    <li class="activeli">今天 7月15日</li>
-                    <li>明天 7月16日</li>
-                    <li>后天 7月17日</li>
-                    <li>周六 7月18日</li>
+                    <li class="today" id="today_1" onclick=changeTimetable(id)>Today</li>
+                    <li class="tmr" id="tmr_1" onclick=changeTimetable(id)>Tomorrow</li>
+                    <li class="tmr1" id="tmr1_1" onclick=changeTimetable(id)>tmr1</li>
+                    <li class="tmr2" id="tmr2_1" onclick=changeTimetable(id)>tmr2</li>
                 </ul>
             </div>
-            <div class="session">
+
+            <div class="session" id="session1" style="display:''">
                 <ul>
                     <li>
-                        <span>放映时间</span>
-                        <span>语言版本</span>
-                        <span>放映厅</span>
-                        <span style="color: rgb(58, 58, 58);">售价(元)</span>
-                        <span>购票选座</span>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
                     </li>
-                    <li>
-                        <span>13:45</span>
-                        <span>日语2D</span>
-                        <span>5号激光厅</span>
-                        <span>￥66</span>
-                        <span class="btn" onclick="jump()">购票选座</span>
-                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session1' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price' style='color:white'>Buy</a></span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session1' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session1' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session1' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
                 </ul>
             </div>
+
+            <div class="session" id="session2" style="display:none">
+                <ul>
+                    <li>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
+                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session2' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session2' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session2' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session2' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
+                </ul>
+            </div>
+
+            <div class="session" id="session3" style="display:none">
+                <ul>
+                    <li>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
+                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session3' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session3' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session3' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session3' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
+                </ul>
+            </div>
+
+            <div class="session" id="session4" style="display:none">
+                <ul>
+                    <li>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
+                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session4' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session4' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session4' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session4' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
+                </ul>
+            </div>
+
+            <div class="session" id="session5" style="display:none">
+                <ul>
+                    <li>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
+                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session5' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session5' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session5' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session5' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
+                </ul>
+            </div>
+
+            <div class="session" id="session6" style="display:none">
+                <ul>
+                    <li>
+                        <span>Time</span>
+                        <span>Region</span>
+                        <span>Hall</span>
+                        <span style="color: rgb(58, 58, 58);">Price ($)</span>
+                        <span>Buy</span>
+                    </li>
+                    <?php
+                        $sql = "select * from movies where Status='Now Showing'";
+                        $result = $db->query($sql);
+                        $records=array();
+                        while($row=$result->fetch_assoc())
+                        {
+                            $records[]=$row;
+                        };
+                        $num_movies = count($records);
+    
+                        $movie_1 = $records[0];
+                        $movie_1_name = $movie_1["Name"];
+                        $movie_1_likes = $movie_1["Likes"];
+                        $movie_1_duration = $movie_1["Duration"];
+                        $movie_1_genre = $movie_1["Type"];
+                        $movie_1_character = $movie_1["Characters"];
+                        $movie_1_price = $movie_1["Price"];
+                        $movie_1_region = $movie_1["Region"];
+
+                        $query_today = "select * from movietimetable where Date='Today'";
+                        $result_today = $db->query($query_today);
+                        $records_today=array();
+                        while($row=$result_today->fetch_assoc())
+                        {
+                            $records_today[]=$row;
+                        };
+                        $num_records_today = count($records_today);
+                        
+                        echo "<div class='today_timetable' id='today_timetable_session6' style='display:''>";
+                        for ($index=0; $index<$num_records_today; $index++) {
+                            $time = $records_today[$index]["Time"];
+                            $hall = $records_today[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow = "select * from movietimetable where Date='Tomorrow'";
+                        $result_tomorrow = $db->query($query_tomorrow);
+                        $records_tomorrow=array();
+                        while($row=$result_tomorrow->fetch_assoc())
+                        {
+                            $records_tomorrow[]=$row;
+                        };
+                        $num_records_tomorrow = count($records_tomorrow);
+                        
+                        echo "<div class='tmr_timetable' id='tmr_timetable_session6' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow; $index++) {
+                            $time = $records_tomorrow[$index]["Time"];
+                            $hall = $records_tomorrow[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow1 = "select * from movietimetable where Date='Tomorrow1'";
+                        $result_tomorrow1 = $db->query($query_tomorrow1);
+                        $records_tomorrow1=array();
+                        while($row=$result_tomorrow1->fetch_assoc())
+                        {
+                            $records_tomorrow1[]=$row;
+                        };
+                        $num_records_tomorrow1 = count($records_tomorrow1);
+                        
+                        echo "<div class='tmr1_timetable' id='tmr1_timetable_session6' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow1; $index++) {
+                            $time = $records_tomorrow1[$index]["Time"];
+                            $hall = $records_tomorrow1[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+
+                        $query_tomorrow2 = "select * from movietimetable where Date='Tomorrow2'";
+                        $result_tomorrow2 = $db->query($query_tomorrow2);
+                        $records_tomorrow2=array();
+                        while($row=$result_tomorrow2->fetch_assoc())
+                        {
+                            $records_tomorrow2[]=$row;
+                        };
+                        $num_records_tomorrow2 = count($records_tomorrow2);
+                        
+                        echo "<div class='tmr2_timetable' id='tmr2_timetable_session6' style='display:none'>";
+                        for ($index=0; $index<$num_records_tomorrow2; $index++) {
+                            $time = $records_tomorrow2[$index]["Time"];
+                            $hall = $records_tomorrow2[$index]["Hall"];
+                            
+                            echo "<li>";
+                            echo "<span>$time</span>";
+                            echo "<span>$movie_1_region</span>";
+                            echo "<span>$hall</span>";
+                            echo "<span>$movie_1_price</span>";
+                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "</li>";
+                        }
+                        echo "</div>";
+                    ?>             
+                </ul>
+            </div>
+
+            
+            
+
+            
+
         </div>
     </div>
 

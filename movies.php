@@ -354,12 +354,12 @@
     <div class="movies-body">
         <ul id="movies-body">
         <?php
-            $exist = mysqli_query($success, "SHOW TABLES LIKE movielist");
-            if(mysqli_num_rows($exist==0)) {
+            // $exist = mysqli_query($success, "SHOW TABLES LIKE movielist");
+            // if(mysqli_num_rows($exist==0)) {
                 
-                $combine_select_create = "create table movielist as select * from movies";
-                $combine_result = $db->query($combine_select_create);
-            }
+            //     $combine_select_create = "create table movielist as select * from movies";
+            //     $combine_result = $db->query($combine_select_create);
+            // }
         
             $sql = "select * from movielist";
             $result = $db->query($sql);
@@ -374,12 +374,16 @@
                 $movie_name = $records[$index]['Name'];
                 $movie_img_url = $records[$index]['URL'];
                 $movie_likes = $records[$index]['Likes'];
+                $movie_genre = $records[$index]['Type'];
+                $movie_year = $records[$index]['ShowTime'];
+                $movie_region = $records[$index]['Region'];
                 echo "<li class='othermovie-model'>";
                 echo "<a href='loginMovieInfo.php?User=$current_user&Name=$movie_name'>";
-                echo "<img alt='' src='$movie_img_url' style='width:150px'>";
-                echo "<p>$movie_name</p>";
+                echo "<img alt='' src='$movie_img_url' style='width:160px; height:220px'>";
+                echo "<p style='font-size: 14px'>$movie_name</p>";
+                // echo "<p style='font-size: 14px'>$movie_genre, $movie_year, $movie_region</p>";
                 echo "</a>";
-                echo "<i>$movie_likes</i>";
+                echo "<i>$movie_likes Likes</i>";
                 echo "<i class='mix2d'></i>";
                 echo "</li>";
             }

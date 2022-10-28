@@ -26,9 +26,9 @@
     }
     print_r($all_select_element_index);
 
-    $category_string = "Category='$category',";
-    $region_string = "Region='$region',";
-    $special_string = "Special='$special',";
+    $category_string = "Category = '$category' and ";
+    $region_string = "Region = '$region' and ";
+    $special_string = "Special = '$special' and ";
 
     $sql_string = "";
 
@@ -42,7 +42,7 @@
         $sql_string .= $special_string;
     }
 
-    $sql_string = rtrim($sql_string,",");
+    $sql_string = rtrim($sql_string," and ");
     $base = "select * from theatres where ";
     
     if (strlen($sql_string) != 0) {
