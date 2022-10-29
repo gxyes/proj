@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="css/clear.css">
     <title>Details</title>
     <link rel="icon" href="images/cinema.png">
-
-</head>
-
-<body>
-    <!-- header -->
     <?php
         $servername = "localhost";
         $username = "root";
@@ -39,6 +34,18 @@
             print_r($_GET["current"]);
         }
     ?>
+    <script type="text/javascript">
+        function buyMovie() {
+            var current_user = `<?php echo $current_user?>`;
+            var movie_name = `<?php echo $name?>`;
+            // console.log(movie_name);
+            window.location.href = "loginBuy.php?User=" + current_user + "&Name=" + movie_name;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- header -->
     <header>
         <div class="header-body">
             <a href="index.php" class="logo">MovieFever</a>
@@ -58,8 +65,8 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Theatre</a></li>
+                    <li><a href="#" class="nav-model">Forum</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model">Theatre</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -166,7 +173,7 @@
                 </div>
                 <div class="movie-btn" style="font-size: 12px;">
                     <a href="#"><i></i> <span>Like</span></a>
-                    <a href="#"><i></i> <span>Buy</span></a>
+                    <a onclick=buyMovie()><i></i> <span>Buy</span></a>
                 </div>
                 <div class="watching">
                     <?php

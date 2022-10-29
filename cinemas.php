@@ -35,16 +35,22 @@
 
         function selectCat(category) {
             // console.log(category);
+            var tab = document.getElementById(category);
+            tab.setAttribute('class', 'tag-click active');
             update(category=category, region=gbregion, special=gbspecial);
         }
 
         function selectRegion(region) {
             // console.log(region);
+            var tab = document.getElementById(region);
+            tab.setAttribute('class', 'tag-click active');
             update(category=gbcat, region=region, special=gbspecial);
         }
 
         function selectSpecial(special) {
             // console.log(special);
+            var tab = document.getElementById(special);
+            tab.setAttribute('class', 'tag-click active');
             update(category=gbcat, region=gbregion, special=special);
         }
     </script>
@@ -95,7 +101,7 @@
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model active">Theatre</a></li>
                     <li><a href="#" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Shop</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -143,7 +149,7 @@
                     Category:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active" id="none" onclick=selectCat(id)>
+                    <li class="tag-click" id="none" onclick=selectCat(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id="Ocean Theatre" onclick=selectCat(id)>
@@ -159,7 +165,7 @@
                     Region:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active" id="none" onclick=selectRegion(id)>
+                    <li class="tag-click" id="none" onclick=selectRegion(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id="Tampines" onclick=selectRegion(id)>
@@ -196,42 +202,42 @@
                     Special:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active">
+                    <li class="tag-click" id="none" onclick=selectSpecial(id)>
                         <a href="#">ALL</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="lMAX" onclick=selectSpecial(id)>
                         <a href="#">lMAX</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="CGS" onclick=selectSpecial(id)>
                         <a href="#">CGS</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="Dolby Cinema" onclick=selectSpecial(id)>
                         <a href="#">Dolby Cinema</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="RealD" onclick=selectSpecial(id)>
                         <a href="#">RealD</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="RealD6FL" onclick=selectSpecial(id)>
                         <a href="#">RealD6FL
                         </a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="LUXE" onclick=selectSpecial(id)>
                         <a ref="#">LUXE
                         </a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="4DX" onclick=selectSpecial(id)>
                         <a href="#">4DX</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="DTS:X" onclick=selectSpecial(id)>
                         <a href="#">DTS:X</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="4K" onclick=selectSpecial(id)>
                         <a href="#">4K</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="4D" onclick=selectSpecial(id)>
                         <a ref="#">4D</a>
                     </li>
-                    <li class="tag-click">
+                    <li class="tag-click" id="CINITV" onclick=selectSpecial(id)>
                         <a ef="#">CINITV</a>
                     </li>
                 </ul>

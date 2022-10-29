@@ -55,7 +55,7 @@
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
                     <li><a href="#" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Shop</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
             <div class="app-download">

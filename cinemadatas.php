@@ -190,6 +190,7 @@
         $sql = "select * from currentUser";
         $result = $db->query($sql);
         $records=$result->fetch_assoc();
+
         $current_user = $records["Name"];
 
         if ($_GET["current"]) {
@@ -217,9 +218,9 @@
                 <ul class="nav-list">
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
-                    <li><a href="cinemas.php" class="nav-model active">Theatre</a></li>
+                    <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
                     <li><a href="#" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Shop</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -577,7 +578,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price' style='color:white'>Buy</a></span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -602,7 +603,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -626,7 +627,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -650,7 +651,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -677,7 +678,7 @@
                         };
                         $num_movies = count($records);
     
-                        $movie_1 = $records[0];
+                        $movie_1 = $records[1];
                         $movie_1_name = $movie_1["Name"];
                         $movie_1_likes = $movie_1["Likes"];
                         $movie_1_duration = $movie_1["Duration"];
@@ -705,7 +706,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -730,7 +731,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -754,7 +755,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -778,7 +779,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -805,7 +806,7 @@
                         };
                         $num_movies = count($records);
     
-                        $movie_1 = $records[0];
+                        $movie_1 = $records[2];
                         $movie_1_name = $movie_1["Name"];
                         $movie_1_likes = $movie_1["Likes"];
                         $movie_1_duration = $movie_1["Duration"];
@@ -833,7 +834,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -858,7 +859,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -882,7 +883,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -906,7 +907,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -933,7 +934,7 @@
                         };
                         $num_movies = count($records);
     
-                        $movie_1 = $records[0];
+                        $movie_1 = $records[3];
                         $movie_1_name = $movie_1["Name"];
                         $movie_1_likes = $movie_1["Likes"];
                         $movie_1_duration = $movie_1["Duration"];
@@ -961,7 +962,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -986,7 +987,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1010,7 +1011,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1034,7 +1035,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1061,7 +1062,7 @@
                         };
                         $num_movies = count($records);
     
-                        $movie_1 = $records[0];
+                        $movie_1 = $records[4];
                         $movie_1_name = $movie_1["Name"];
                         $movie_1_likes = $movie_1["Likes"];
                         $movie_1_duration = $movie_1["Duration"];
@@ -1089,7 +1090,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -1114,7 +1115,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1138,7 +1139,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1162,7 +1163,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1189,7 +1190,7 @@
                         };
                         $num_movies = count($records);
     
-                        $movie_1 = $records[0];
+                        $movie_1 = $records[5];
                         $movie_1_name = $movie_1["Name"];
                         $movie_1_likes = $movie_1["Likes"];
                         $movie_1_duration = $movie_1["Duration"];
@@ -1217,7 +1218,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         
                         }
@@ -1242,7 +1243,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1266,7 +1267,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";
@@ -1290,7 +1291,7 @@
                             echo "<span>$movie_1_region</span>";
                             echo "<span>$hall</span>";
                             echo "<span>$movie_1_price</span>";
-                            echo "<span class='btn' onclick='jump()'>Buy</span>";
+                            echo "<span class='btn'><a href='selectionSeat.php?Name=$movie_1_name&Theatre=$name&Hall=$hall&Time=$time&Price=$movie_1_price&User=$current_user' style='color:white'>Buy</a></span>";
                             echo "</li>";
                         }
                         echo "</div>";

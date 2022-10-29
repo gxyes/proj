@@ -9,6 +9,36 @@
     <link rel="stylesheet" href="css/seat.css">
     <title>Seat Selection</title>
     <link rel="icon" href="images/cinema.png">
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $databasename = "moviefever";
+
+        $db = new mysqli($servername, $username, $password, $databasename);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Wrong!";
+            exit;
+        }
+
+        $movie_name = $_GET["Name"]; 
+        $theatre_name = $_GET["Theatre"];
+        $hall = $_GET["Hall"];
+        $time = $_GET["Time"];
+        $price = $_GET["Price"];
+        print_r($theatre_name);
+        
+        $sql = "select * from currentUser";
+        $result = $db->query($sql);
+        $records=$result->fetch_assoc();
+        $current_user = $records["Name"];
+
+        if ($_GET["User"]) {
+            $current_user = $_GET["User"];
+        }
+    ?>
     <script type="text/javascript">
         window.addEventListener('load', function() {
             let seats = document.getElementById('seats-main');
@@ -57,9 +87,7 @@
                 p.setAttribute('class', 'none');
                 div.setAttribute('class', 'seat-num');
                 div.setAttribute('id', `${id.join('-')}`);
-                div.innerHTML = `
-                Row ${id[0]} Seat ${id[1]}
-                `;
+                div.innerHTML = `Row ${id[0]} Seat ${id[1]}`;
                 box.appendChild(div)
             }
             // delete
@@ -67,7 +95,6 @@
                 let box = document.getElementById('seatmini');
                 let div = document.getElementById(`${id}`);
                 box.removeChild(div);
-
             }
             // total price
             function count() {
@@ -87,14 +114,40 @@
                     p.classList.remove('none')
                 }
             }
+            
         })
+        function addBooking() {
+            var day1 = new Date();
+            day1.setTime(day1.getTime());
+            var s1 = day1.getFullYear()+"-" + (day1.getMonth()+1) + "-" + day1.getDate();
+            var seats = document.getElementsByClassName("seat-num");
+            var seats_string = "";
+
+            for (i=0;i<seats.length;i++){
+                seats_string += seats[i].innerHTML;
+                seats_string += " ";
+            }
+            // console.log(seats_string);
+
+            var booking_date = s1;
+            var booking_total_price = total_price;
+            var booking_movie_name = `<?php echo $movie_name?>`;
+            var booking_movie_hall = `<?php echo $hall?>`;
+            var booking_movie_time = `<?php echo $time?>`;
+            var booking_movie_theatre = `<?php echo $theatre_name?>`;
+            var booking_movie_user = `<?php echo $current_user?>`;
+            var booking_seats = seats_string;
+
+            window.location.href =  "addBookingConfirm.php?Date=" + booking_date + "&Price=" + booking_total_price + "&Movie=" + booking_movie_name
+            + "&User=" + booking_movie_user + "&Hall=" + booking_movie_hall + "&Time=" + booking_movie_time + "&Theatre=" + booking_movie_theatre + "&Seat=" + booking_seats;               
+        }
 
     </script>
 
 </head>
 
 <body>
-<?php
+    <?php
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -228,10 +281,10 @@
             </div>
             <div class="data">
                 <?php
-                    $sql = "select * from movies";
+                    $sql = "select * from movies where Name='$movie_name'";
                     $result = $db->query($sql);
                     $records=$result->fetch_assoc();
-                    $movie_name = $records["Name"];
+                    // $movie_name = $records["Name"];
                     $movie_img_url = $records["URL"];
                     $movie_genre = $records['Type'];
                     $movie_duration = $records['Duration'];
@@ -272,7 +325,7 @@
                 <?php
                     echo "<div class='user-data'>";
                     echo "<p>Username: <span>$current_user</span></p>";
-                    echo "<a href='#' id='givemoney'>Confirm</a>";
+                    echo "<a href='#' onclick=addBooking() id='givemoney'>Confirm</a>";
                     echo "</div>";
                 ?>
             </div>

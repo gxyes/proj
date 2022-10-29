@@ -106,8 +106,8 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movies.php" class="nav-model">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model active">Shop</a></li>
+                    <li><a href="#" class="nav-model">Forum</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model active">Shop</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -315,7 +315,7 @@
             </div>
         </div>
         <?php
-            $sql = "select * from theatrelist";
+            $sql = "select * from theatres";
             $result = $db->query($sql);
             $records=array();
             while($row=$result->fetch_assoc())

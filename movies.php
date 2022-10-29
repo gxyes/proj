@@ -33,16 +33,22 @@
 
         function selectGenre(genre) {
             // console.log(genre);
+            var tab = document.getElementById(genre);
+            tab.setAttribute('class', 'tag-click active');
             update(genre=genre, region=gbregion, year=gbyear);
         }
 
         function selectRegion(region) {
             // console.log(region);
+            var tab = document.getElementById(region).parentNode;
+            tab.setAttribute('class', 'tag-click active');
             update(genre=gbgenre, region=region, year=gbyear);
         }
 
         function selectYear(year) {
             // console.log(year);
+            var tab = document.getElementById(year).parentNode;
+            tab.setAttribute('class', 'tag-click active');
             update(genre=gbgenre, region=gbregion, year=year);
         }
     </script>
@@ -91,8 +97,8 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movies.php" class="nav-model active">Movie</a></li>
                     <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Forum</a></li>
-                    <li><a href="cinemas.html" class="nav-model">Theatre</a></li>
+                    <li><a href="#" class="nav-model">Forum</a></li>
+                    <!-- <li><a href="cinemas.html" class="nav-model">Theatre</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -133,8 +139,8 @@
     </header>
 
     <!-- nav -->
-    <div class="movies-nav">
-        <div class="nav-body">
+    <div class="movies-nav" style='background: white'>
+        <!-- <div class="nav-body">
             <div class="hotshowing">
                 <a href="#" class="active">
                     Now Showing
@@ -150,7 +156,7 @@
                     Classic
                 </a>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Category -->
@@ -161,7 +167,7 @@
                     Genre:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active" id='none', onclick=selectGenre(id)>
+                    <li class="tag-click" id='none', onclick=selectGenre(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id='romance', onclick=selectGenre(id)>
@@ -222,7 +228,7 @@
                     Region:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active">
+                    <li class="tag-click">
                         <a href="#" id='none', onclick=selectRegion(id)>ALL</a>
                     </li>
                     <li class="tag-click">
@@ -280,7 +286,7 @@
                     Year:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click active">
+                    <li class="tag-click">
                         <a href="#" id='all', onclick=selectYear(id)>ALL</a>
                     </li>
                     <li class="tag-click">
