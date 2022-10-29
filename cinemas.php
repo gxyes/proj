@@ -140,10 +140,10 @@
             </div>
             <div class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php" class="nav-model active">Home</a></li>
+                    <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model">Movie</a></li>
-                    <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
-                    <li><a href="#" class="nav-model">Forum</a></li>
+                    <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model active">Theatre</a></li>
+                    <!-- <li><a href="#" class="nav-model">Forum</a></li> -->
                     <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
