@@ -8,10 +8,45 @@
     <link rel="stylesheet" href="css/clear.css">
     <title>Movie</title>
     <link rel="icon" href="images/cinema.png">
+    <?php
+         $gbgenre = $_GET["gbgenre"];
+         $gbregion = $_GET["gbregion"];
+         $gbyear = $_GET["gbyear"];     
+    ?>
     <script type="text/javascript">
-        var gbgenre="all_select";
-        var gbregion="all_select";
-        var gbyear="all_select";
+        // var gbgenre="all_select";
+        // var gbregion="all_select";
+        // var gbyear="all_select";
+        var gbgenre = `<?php echo $gbgenre?>`;
+        var gbregion= `<?php echo $gbregion?>`;
+        var gbyear = `<?php echo $gbyear?>`;
+        console.log(gbregion)
+
+        var selection = "You have selected " + gbgenre + " and " + gbregion + " and " + gbyear;
+        
+        window.addEventListener('load', function() {
+
+            var selection_block = document.createElement("div");
+            selection_block.setAttribute("style", "font-size:20px; line-height:50px; color: white");
+            selection_block.innerHTML = selection;
+            document.getElementById("movies-nav").appendChild(selection_block);
+
+            if (gbgenre != '\'all_select\'') {
+                var tab1 = document.getElementById(gbgenre.replace('\'', '').replace('\'', ''));
+                tab1.setAttribute('class', 'tag-click active');
+            }
+
+            if (gbregion != '\'all_select\'') {
+                var tab2 = document.getElementById(gbregion.replace('\'', '').replace('\'', ''));
+                tab2.setAttribute('class', 'tag-click active');
+            }
+
+            if (gbyear != '\'all_select\'') {
+                var tab3 = document.getElementById(gbyear.replace('\'', '').replace('\'', ''));
+                tab3.setAttribute('class', 'tag-click active');
+            }
+        })
+        
 
         function update(genre='none', region='none', year='none'){
             genre = genre||'none'; 
@@ -20,6 +55,7 @@
 
             if (genre != 'none') {
                 gbgenre = genre;
+                //console.log(String(genre));
             }
             if (region != 'none') {
                 gbregion = region;
@@ -27,14 +63,15 @@
             if (year != 'none') {
                 gbyear = year;
             }
-            // console.log(gbgenre, gbregion, gbyear);
-            window.location.href = "movieList.php?Genre=" + gbgenre + "&Region=" + gbregion + "&Year=" + gbyear;
+            console.log(gbgenre, gbregion, gbyear);
+            window.location.href = 'movieList.php?Genre=' + gbgenre + '&Region=' + gbregion + '&Year=' + gbyear;
         }
 
         function selectGenre(genre) {
-            // console.log(genre);
+            //sconsole.log(genre);
             var tab = document.getElementById(genre);
             tab.setAttribute('class', 'tag-click active');
+            genre = "'" + genre + "'";
             update(genre=genre, region=gbregion, year=gbyear);
         }
 
@@ -42,6 +79,7 @@
             // console.log(region);
             var tab = document.getElementById(region).parentNode;
             tab.setAttribute('class', 'tag-click active');
+            region = "'" + region + "'";
             update(genre=gbgenre, region=region, year=gbyear);
         }
 
@@ -49,6 +87,7 @@
             // console.log(year);
             var tab = document.getElementById(year).parentNode;
             tab.setAttribute('class', 'tag-click active');
+            year = "'" + year + "'";
             update(genre=gbgenre, region=gbregion, year=year);
         }
     </script>
@@ -94,11 +133,11 @@
             </div>
             <div class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php" class="nav-model">Home</a></li>
-                    <li><a href="movies.php" class="nav-model active">Movie</a></li>
-                    <li><a href="cinemas.php" class="nav-model">Theatre</a></li>
+                    <li><a href="index.php" class="nav-model active">Home</a></li>
+                    <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model">Movie</a></li>
+                    <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
                     <li><a href="#" class="nav-model">Forum</a></li>
-                    <!-- <li><a href="cinemas.html" class="nav-model">Theatre</a></li> -->
+                    <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
             <div class="app-download">
@@ -130,16 +169,21 @@
                     }
                     else {
                         echo "<div class='islogin nologin' style='font-size: 12px'>";
-                        echo "<a href='personal.html'>Profile</a>";
+                        echo "<a href='personal.php'>Profile</a>";
                         echo "<a href='logout.php'>Log Out</a>";
                         echo "</div>";
                     }
                 ?>
+                <!-- <a href="login.php" class="notlogin" style="font-size: 12px">Login/Sign Up</a>
+                <div class="islogin nologin" style="font-size: 12px">
+                    <a href="personal.html">Profile</a>
+                    <a href="index.html">Log Out</a>
+                </div> -->
             </div>
     </header>
 
     <!-- nav -->
-    <div class="movies-nav" style='background: white'>
+    <div class="movies-nav" id="movies-nav">
         <!-- <div class="nav-body">
             <div class="hotshowing">
                 <a href="#" class="active">
@@ -167,7 +211,7 @@
                     Genre:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click" id='none', onclick=selectGenre(id)>
+                    <li class="tag-click" id='all_select', onclick=selectGenre(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id='romance', onclick=selectGenre(id)>
@@ -201,25 +245,25 @@
                         <a href="#">Adventure</a>
                     </li>
                     <li class="tag-click" id='war', onclick=selectGenre(id)>
-                        <a ref="#">War</a>
+                        <a href="#">War</a>
                     </li>
                     <li class="tag-click" id='fantacy', onclick=selectGenre(id)>
-                        <a ref="#">Fantacy</a>
+                        <a href="#">Fantacy</a>
                     </li>
                     <li class="tag-click" id='sport', onclick=selectGenre(id)>
-                        <a ref="#">Sport</a>
+                        <a href="#">Sport</a>
                     </li>
                     <li class="tag-click" id='family', onclick=selectGenre(id)>
-                        <a ref="#">Family</a>
+                        <a href="#">Family</a>
                     </li>
                     <li class="tag-click" id='history', onclick=selectGenre(id)>
-                        <a ref="#">History</a>
+                        <a href="#">History</a>
                     </li>
                     <li class="tag-click" id='documentary', onclick=selectGenre(id)>
-                        <a ref="#">Documentary</a>
+                        <a href="#">Documentary</a>
                     </li>
                     <li class="tag-click" id='others', onclick=selectGenre(id)>
-                        <a ef="#">Others</a>
+                        <a href="#">Others</a>
                     </li>
                 </ul>
             </div>
@@ -228,56 +272,56 @@
                     Region:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click">
-                        <a href="#" id='none', onclick=selectRegion(id)>ALL</a>
+                    <li class="tag-click" id='all_select', onclick=selectRegion(id)>
+                        <a href="#">ALL</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='china', onclick=selectRegion(id)>China</a>
+                    <li class="tag-click"  id='china', onclick=selectRegion(id)>
+                        <a href="#">China</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='us', onclick=selectRegion(id)>United States</a>
+                    <li class="tag-click"  id='us', onclick=selectRegion(id)>
+                        <a href="#">United States</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='korea', onclick=selectRegion(id)>Korea</a>
+                    <li class="tag-click"  id='korea', onclick=selectRegion(id)>
+                        <a href="#">Korea</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='japan', onclick=selectRegion(id)>Japan</a>
+                    <li class="tag-click"  id='japan', onclick=selectRegion(id)>
+                        <a href="#">Japan</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='tailand', onclick=selectRegion(id)>Tailand</a>
+                    <li class="tag-click"  id='tailand', onclick=selectRegion(id)>
+                        <a href="#">Tailand</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='india', onclick=selectRegion(id)>India</a>
+                    <li class="tag-click"  id='india', onclick=selectRegion(id)>
+                        <a href="#">India</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='france', onclick=selectRegion(id)>France</a>
+                    <li class="tag-click"  id='france', onclick=selectRegion(id)>
+                        <a href="#">France</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='uk', onclick=selectRegion(id)>United Kingdom</a>
+                    <li class="tag-click"  id='uk', onclick=selectRegion(id)>
+                        <a href="#">United Kingdom</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='russia', onclick=selectRegion(id)>Russia</a>
+                    <li class="tag-click"  id='russia', onclick=selectRegion(id)>
+                        <a href="#">Russia</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='italy', onclick=selectRegion(id)>Italy</a>
+                    <li class="tag-click"  id='italy', onclick=selectRegion(id)>
+                        <a href="#">Italy</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='spain', onclick=selectRegion(id)>Spain</a>
+                    <li class="tag-click"  id='spain', onclick=selectRegion(id)>
+                        <a href="#">Spain</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='germany', onclick=selectRegion(id)>Germany</a>
+                    <li class="tag-click"  id='germany', onclick=selectRegion(id)>
+                        <a href="#">Germany</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='poland', onclick=selectRegion(id)>Poland</a>
+                    <li class="tag-click"  id='poland', onclick=selectRegion(id)>
+                        <a href="#">Poland</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='australia', onclick=selectRegion(id)>Australia</a>
+                    <li class="tag-click"  id='australia', onclick=selectRegion(id)>
+                        <a href="#">Australia</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='iran', onclick=selectRegion(id)>Iran</a>
+                    <li class="tag-click"  id='iran', onclick=selectRegion(id)>
+                        <a href="#">Iran</a>
                     </li>
-                    <li class="tag-click">
-                        <a ef="#" id='others', onclick=selectRegion(id)>Others</a>
+                    <li class="tag-click"  id='others', onclick=selectRegion(id)>
+                        <a href="#">Others</a>
                     </li>
                 </ul>
             </div>
@@ -286,53 +330,53 @@
                     Year:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click">
-                        <a href="#" id='all', onclick=selectYear(id)>ALL</a>
+                    <li class="tag-click" id='all_select', onclick=selectYear(id)>
+                        <a href="#">ALL</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2020', onclick=selectYear(id)>2020</a>
+                    <li class="tag-click" id='2020', onclick=selectYear(id)>
+                        <a href="#">2020</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2019', onclick=selectYear(id)>2019</a>
+                    <li class="tag-click" id='2019', onclick=selectYear(id)>
+                        <a href="#">2019</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2018', onclick=selectYear(id)>2018</a>
+                    <li class="tag-click" id='2018', onclick=selectYear(id)>
+                        <a href="#">2018</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2017', onclick=selectYear(id)>2017</a>
+                    <li class="tag-click" id='2017', onclick=selectYear(id)>
+                        <a href="#">2017</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2016', onclick=selectYear(id)>2016</a>
+                    <li class="tag-click" id='2016', onclick=selectYear(id)>
+                        <a href="#">2016</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2015', onclick=selectYear(id)>2015</a>
+                    <li class="tag-click" id='2015', onclick=selectYear(id)>
+                        <a href="#">2015</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='2014', onclick=selectYear(id)>2014</a>
+                    <li class="tag-click" id='2014', onclick=selectYear(id)>
+                        <a href="#">2014</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2013', onclick=selectYear(id)>2013</a>
+                    <li class="tag-click" id='2013', onclick=selectYear(id)>
+                        <a href="#">2013</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2012', onclick=selectYear(id)>2012</a>
+                    <li class="tag-click" id='2012', onclick=selectYear(id)>
+                        <a href="#">2012</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='2011', onclick=selectYear(id)>2011</a>
+                    <li class="tag-click" id='2011', onclick=selectYear(id)>
+                        <a href="#">2011</a>
                     </li>
-                    <li class="tag-click">
-                        <a href="#" id='2010', onclick=selectYear(id)>2010</a>
+                    <li class="tag-click" id='2010', onclick=selectYear(id)>
+                        <a href="#">2010</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='90s', onclick=selectYear(id)>90s</a>
+                    <li class="tag-click" id='90s', onclick=selectYear(id)>
+                        <a href="#">90s</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='80s', onclick=selectYear(id)>80s</a>
+                    <li class="tag-click" id='80s', onclick=selectYear(id)>
+                        <a href="#">80s</a>
                     </li>
-                    <li class="tag-click">
-                        <a ref="#" id='70s', onclick=selectYear(id)>70s</a>
+                    <li class="tag-click" id='70s', onclick=selectYear(id)>
+                        <a href="#">70s</a>
                     </li>
-                    <li class="tag-click">
-                        <a ef="#" id='Others', onclick=selectYear(id)>Others</a>
+                    <li class="tag-click" id='Others', onclick=selectYear(id)>
+                        <a href="#">Others</a>
                     </li>
                 </ul>
             </div>
@@ -355,7 +399,7 @@
         </div> -->
     </div>
 
-
+    
     <!-- Movies -->
     <div class="movies-body">
         <ul id="movies-body">

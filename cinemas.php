@@ -10,10 +10,49 @@
     <link rel="stylesheet" href="css/cinemas.css">
     <title>Cinema</title>
     <link rel="icon" href="images/cinema.png">
+    <?php
+        $gbcat = $_GET["gbcat"];
+        $gbregion = $_GET["gbregion"];
+        $gbspecial = $_GET["gbspecial"];     
+    ?>
     <script type="text/javascript">
-        var gbcat="all_select";
-        var gbregion="all_select";
-        var gbspecial="all_select";
+        var gbcat = `<?php echo $gbcat?>`;
+        var gbregion= `<?php echo $gbregion?>`;
+        var gbspecial = `<?php echo $gbspecial?>`;
+
+        var selection = "You have selected " + gbcat + " and " + gbregion + " and " + gbspecial;
+        
+        window.addEventListener('load', function() {
+            var selection_block = document.createElement("div");
+            selection_block.setAttribute("style", "font-size:20px; line-height:50px; color: white");
+            selection_block.innerHTML = selection;
+            document.getElementById("cinema-nav").appendChild(selection_block);
+
+            // if (gbcat == '\'all_select\'') {
+            //     name = 'all_select_cat';
+            //     var tab1 = document.getElementsByName(name)[0];
+            //     tab1.setAttribute('class', 'tag-click active');
+            // } else {
+            //     var tab1 = document.getElementById(gbcat.replace('\'', '').replace('\'', ''));
+            //     tab1.setAttribute('class', 'tag-click active');
+            // }
+
+
+            if (gbcat != '\'all_select\'') {
+                var tab1 = document.getElementById(gbcat.replace('\'', '').replace('\'', ''));
+                tab1.setAttribute('class', 'tag-click active');
+            }
+
+            if (gbregion != '\'all_select\'') {
+                var tab2 = document.getElementById(gbregion.replace('\'', '').replace('\'', ''));
+                tab2.setAttribute('class', 'tag-click active');
+            }
+
+            if (gbspecial != '\'all_select\'') {
+                var tab3 = document.getElementById(gbspecial.replace('\'', '').replace('\'', ''));
+                tab3.setAttribute('class', 'tag-click active');
+            }
+        })
 
         function update(category='none', region='none', special='none'){
             category = category||'none'; 
@@ -29,14 +68,16 @@
             if (special != 'none') {
                 gbspecial = special;
             }
-            // console.log(gbcat, gbregion, gbspecial);
-            window.location.href = "cinemaList.php?Category=" + gbcat + "&Region=" + gbregion + "&Special=" + gbspecial;
+            console.log(gbcat, gbregion, gbspecial);
+            console.log(gbcat);
+            window.location.href = 'cinemaList.php?Category=' + gbcat + '&Region=' + gbregion + '&Special=' + gbspecial;
         }
 
         function selectCat(category) {
             // console.log(category);
             var tab = document.getElementById(category);
             tab.setAttribute('class', 'tag-click active');
+            category = "'" + category + "'";
             update(category=category, region=gbregion, special=gbspecial);
         }
 
@@ -44,6 +85,7 @@
             // console.log(region);
             var tab = document.getElementById(region);
             tab.setAttribute('class', 'tag-click active');
+            region = "'" + region + "'";
             update(category=gbcat, region=region, special=gbspecial);
         }
 
@@ -51,6 +93,7 @@
             // console.log(special);
             var tab = document.getElementById(special);
             tab.setAttribute('class', 'tag-click active');
+            special = "'" + special + "'";
             update(category=gbcat, region=gbregion, special=special);
         }
     </script>
@@ -76,9 +119,9 @@
         $records=$result->fetch_assoc();
         $current_user = $records["Name"];
 
-        if ($_GET["current"]) {
-            print_r($_GET["current"]);
-        }
+        // if ($_GET["current"]) {
+        //     print_r($_GET["current"]);
+        // }
     ?>
     <!-- header -->
     <header>
@@ -97,9 +140,9 @@
             </div>
             <div class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.php" class="nav-model">Home</a></li>
-                    <li><a href="movies.php" class="nav-model">Movie</a></li>
-                    <li><a href="cinemas.php" class="nav-model active">Theatre</a></li>
+                    <li><a href="index.php" class="nav-model active">Home</a></li>
+                    <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model">Movie</a></li>
+                    <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
                     <li><a href="#" class="nav-model">Forum</a></li>
                     <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
@@ -133,13 +176,38 @@
                     }
                     else {
                         echo "<div class='islogin nologin' style='font-size: 12px'>";
-                        echo "<a href='personal.html'>Profile</a>";
+                        echo "<a href='personal.php'>Profile</a>";
                         echo "<a href='logout.php'>Log Out</a>";
                         echo "</div>";
                     }
                 ?>
+                <!-- <a href="login.php" class="notlogin" style="font-size: 12px">Login/Sign Up</a>
+                <div class="islogin nologin" style="font-size: 12px">
+                    <a href="personal.html">Profile</a>
+                    <a href="index.html">Log Out</a>
+                </div> -->
             </div>
     </header>
+
+    <div class="movies-nav" id="cinema-nav">
+        <!-- <div class="nav-body">
+            <div class="hotshowing">
+                <a href="#" class="active">
+                    Now Showing
+                </a>
+            </div>
+            <div class="willshow">
+                <a href="#">
+                    Comming Soon
+                </a>
+            </div>
+            <div class="oldmovie">
+                <a href="#">
+                    Classic
+                </a>
+            </div>
+        </div> -->
+    </div>
 
     <!-- Category -->
     <div class="movie-list">
@@ -149,7 +217,7 @@
                     Category:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click" id="none" onclick=selectCat(id)>
+                    <li class="tag-click" id="all_select" onclick=selectCat(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id="Ocean Theatre" onclick=selectCat(id)>
@@ -165,7 +233,7 @@
                     Region:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click" id="none" onclick=selectRegion(id)>
+                    <li class="tag-click" id="all_select" onclick=selectRegion(id)>
                         <a href="#">ALL</a>
                     </li>
                     <li class="tag-click" id="Tampines" onclick=selectRegion(id)>
@@ -202,11 +270,11 @@
                     Special:
                 </div>
                 <ul class="tags">
-                    <li class="tag-click" id="none" onclick=selectSpecial(id)>
+                    <li class="tag-click" id="all_select" onclick=selectSpecial(id)>
                         <a href="#">ALL</a>
                     </li>
-                    <li class="tag-click" id="lMAX" onclick=selectSpecial(id)>
-                        <a href="#">lMAX</a>
+                    <li class="tag-click" id="IMAX" onclick=selectSpecial(id)>
+                        <a href="#">IMAX</a>
                     </li>
                     <li class="tag-click" id="CGS" onclick=selectSpecial(id)>
                         <a href="#">CGS</a>

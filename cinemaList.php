@@ -3,6 +3,8 @@
     $region = $_GET["Region"];
     $special = $_GET["Special"];
 
+    print_r($category);
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -20,15 +22,15 @@
     $element = array($category, $region, $special);
 
     for ($index=0; $index<3; $index++) {
-        if ($element[$index] != "all_select") {
+        if ($element[$index] != '\'all_select\'') {
             array_push($all_select_element_index, $index);
         }
     }
-    print_r($all_select_element_index);
+    //print_r($all_select_element_index);
 
-    $category_string = "Category = '$category' and ";
-    $region_string = "Region = '$region' and ";
-    $special_string = "Special = '$special' and ";
+    $category_string = "Category = $category and ";
+    $region_string = "Region = $region and ";
+    $special_string = "Special = $special and ";
 
     $sql_string = "";
 
@@ -55,11 +57,11 @@
     $drop_sql = "drop table if exists theatrelist;";
     $drop_result = $db->query($drop_sql);
 
-    // print_r($select_sql);
+    print_r($select_sql);
 
     $combine_select_create = "create table theatrelist as ".$select_sql;
     $combine_result = $db->query($combine_select_create);
 
-    // print_r($combine_select_create);
-    header('location:cinemas.php');
+    print_r($combine_select_create);
+    header('location:cinemas.php?gbcat='.$category.'&gbregion='.$region.'&gbspecial='.$special.'');
 ?>
