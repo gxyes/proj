@@ -47,7 +47,31 @@
 </head>
 
 <body>
-    <header>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $databasename = "moviefever";
+
+        $db = new mysqli($servername, $username, $password, $databasename);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Wrong!";
+            exit;
+        }
+
+        $sql = "select * from currentUser";
+        $result = $db->query($sql);
+        $records=$result->fetch_assoc();
+        $current_user = $records["Name"];
+
+        if ($_GET["current"]) {
+            $current_user = $_GET["current"];
+        }
+    ?>    
+
+<header>
         <div class="header-body">
             <a href="index.php" class="logo">MovieFever</a>
             <div class="city">Jurong
@@ -112,29 +136,7 @@
             </div>
     </header>
 
-    <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $databasename = "moviefever";
-
-        $db = new mysqli($servername, $username, $password, $databasename);
-
-        // Check connection
-        if (mysqli_connect_errno()) {
-            echo "Wrong!";
-            exit;
-        }
-
-        $sql = "select * from currentUser";
-        $result = $db->query($sql);
-        $records=$result->fetch_assoc();
-        $current_user = $records["Name"];
-
-        if ($_GET["current"]) {
-            $current_user = $_GET["current"];
-        }
-    ?>
+    
 
     <!-- main -->
     <div class="main">
@@ -262,63 +264,22 @@
     <!-- bottom -->
     <div class="footer" style="visibility: visible;">
         <p class="friendly-links">
-            关于猫眼 :
-            <a href="#" target="_blank">关于我们</a>
-            <span></span>
-            <a href="#" target="_blank">管理团队</a>
-            <span></span>
-            <a href="#" target="_blank">投资者关系</a> &nbsp;&nbsp;&nbsp;&nbsp; 友情链接 :
-            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团网</a>
-            <span></span>
-            <a href="#" data-query="utm_source=wwwmaoyan">格瓦拉</a>
-            <span></span>
-            <a href="#" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
-            <span></span>
-            <a href="#" data-query="utm_source=maoyan_pc" target="_blank">欢喜首映</a>
-        </p>
+            <a href="index.php">Home</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">About MovieFever</a>
+            &nbsp; · &nbsp; 
+            <a href="mailto:guoxinying@xuefuguo.com" target="_blank">Contact Us</a>
+        </p><br>
         <p class="friendly-links">
-            商务合作邮箱：v@maoyan.com 客服电话：10105335 违法和不良信息举报电话：4006018900
-        </p>
-        <p class="friendly-links">
-            用户投诉邮箱：tousujubao@meituan.com 舞弊线索举报邮箱：wubijubao@maoyan.com
-        </p>
-        <p class="friendly-links  credentials">
-            <a href="#" target="_blank">中华人民共和国增值电信业务经营许可证 京B2-20190350</a>
-            <span></span>
-            <a href="#" target="_blank">营业性演出许可证 京演（机构）（2019）4094号</a>
-        </p>
-        <p class="friendly-links  credentials">
-            <a href="#" target="_blank">广播电视节目制作经营许可证 （京）字第08478号</a>
-            <span></span>
-            <a href="#" target="_blank">网络文化经营许可证 京网文（2019）3837-369号 </a>
-        </p>
-        <p class="friendly-links  credentials">
-            <a href="#" target="_blank">猫眼用户服务协议 </a>
-            <span></span>
-            <a href="#" target="_blank">猫眼平台交易规则总则 </a>
-            <span></span>
-            <a href="#" target="_blank">隐私政策 </a>
-        </p>
-        <p class="friendly-links  credentials">
-            <a href="" target="_blank">京公网安备
-            11010102003232号</a>
-            <span></span>
-            <a href="#/" target="_blank">京ICP备16022489号</a>
-        </p>
-        <p>北京猫眼文化传媒有限公司</p>
+            Follow Us:&nbsp;&nbsp; 
+            <a href="#" target="_blank">Facebook</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">Twitter</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">Instagram</a>
+        </p><br>
         <p>
-            ©<span class="my-footer-year">2020</span> 猫眼电影 maoyan.com</p>
-        <div class="certificate">
-            <a href="#" target="_blank">
-                <img src="http://p0.meituan.net/moviemachine/e54374ccf134d1f7b2c5b075a74fca525326.png">
-            </a>
-            <a href="#" target="_blank">
-                <img src="http://p1.meituan.net/moviemachine/805f605d5cf1b1a02a4e3a5e29df003b8376.png">
-            </a>
-            <a href="h#" target="_blank">
-                <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
-            </a>
-        </div>
+            &copy;<span class="my-footer-year">2022</span> MovieFever Pte Ltd. All rights reserved: No part of this website may be reproduced in any form without our written permission.</p><br>
     </div>
 </body>
 

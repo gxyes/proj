@@ -134,7 +134,7 @@
                             $movie_trailer_url = $records[$index]["Trailer"]; 
                             echo "<div class='movies-model'>";
                             echo "<a href='loginMovieInfo.php?User=$current_user&Name=$movie_name'><img style='width:100%; height:85%' src='$movie_img_url' alt='' srcset=''></a>";
-                            echo "<a href='loginBuy.php?User=$current_user&Name=$movie_name'>Buy Ticket!</a>";
+                            echo "<a href='loginBuy.php?User=$current_user&Name=$movie_name'><p style='color: #EF4238; padding-top: 10px; width:100%; text-align: center;'>Buy Ticket!</p></a>";
                             echo "</div>";
 
                         };
@@ -461,7 +461,7 @@
         </div>
     </div>
     <!-- bottom -->
-    <div class="footer" style="visibility: visible;">
+    <!-- <div class="footer" style="visibility: visible;">
         <p class="friendly-links">
             关于猫眼 :
             <a href="#" target="_blank">关于我们</a>
@@ -520,6 +520,25 @@
                 <img src="http://p0.meituan.net/scarlett/3cd2a9b7dc179531d20d27a5fd686e783787.png">
             </a>
         </div>
+    </div> -->
+    <div class="footer" style="visibility: visible;">
+        <p class="friendly-links">
+            <a href="index.php">Home</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">About MovieFever</a>
+            &nbsp; · &nbsp; 
+            <a href="mailto:guoxinying@xuefuguo.com" target="_blank">Contact Us</a>
+        </p><br>
+        <p class="friendly-links">
+            Follow Us:&nbsp;&nbsp; 
+            <a href="#" target="_blank">Facebook</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">Twitter</a>
+            &nbsp; · &nbsp; 
+            <a href="#" target="_blank">Instagram</a>
+        </p><br>
+        <p>
+            &copy;<span class="my-footer-year">2022</span> MovieFever Pte Ltd. All rights reserved: No part of this website may be reproduced in any form without our written permission.</p><br>
     </div>
 
     <script src="js/index_slider.js"></script>
