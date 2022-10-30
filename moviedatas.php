@@ -65,7 +65,7 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model active">Movie</a></li>
                     <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
-                    <!-- <li><a href="#" class="nav-model">Forum</a></li> -->
+                    <li><a href="forum.php" class="nav-model">Forum</a></li>
                     <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
@@ -354,9 +354,7 @@
 
                                 echo "<li class='comment-model'>";
 
-                                echo "<div class='comment-img'>";
-                                echo "<img src='$avatar' alt=''>";
-                                echo "</div>";
+                                echo "<img class='comment-img' src='$avatar' alt=''>";
 
                                 echo "<div class='comment-text'>";
                                 echo "<div class='comment-main'>";;

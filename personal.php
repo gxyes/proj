@@ -90,7 +90,7 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model">Movie</a></li>
                     <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
-                    <!-- <li><a href="#" class="nav-model">Forum</a></li> -->
+                    <li><a href="forum.php" class="nav-model">Forum</a></li>
                     <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
@@ -170,6 +170,7 @@
                             $booking_hall = $records[$index]["Hall"];
                             $booking_time = $records[$index]["Time"];
                             $booking_price = $records[$index]["Price"];
+                            $booking_seat = $records[$index]["Seat"];
 
                             $sql_img = "select * from movies where Name='$booking_movie_name'";
                             $result_img = $db->query($sql_img);
@@ -195,6 +196,7 @@
                             echo "<p>&nbsp$booking_movie_name</p>";
                             echo "<p>$booking_theatre</p>";
                             echo "<p>$booking_hall</p>";
+                            echo "<p>$booking_seat</p>";
                             echo "<p>$booking_time</p>";
                             echo "</div>";
                             echo "</div>";
@@ -212,7 +214,7 @@
 
             <div class="ringht" id="info_block" style="display:none">
 
-            <div class="top">
+                <div class="top">
                     <p>Personal Info</p>
                 </div>
                 <ul>

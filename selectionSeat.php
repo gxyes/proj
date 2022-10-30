@@ -38,20 +38,43 @@
         if ($_GET["User"]) {
             $current_user = $_GET["User"];
         }
+
+        // // Get all seats bought from the bookings database
+        // $sql_seats_bought = "select * from bookings where Name = '$movie_name'";
+        // $result_seats_bought = $db->query($sql_seats_bought);
+        // $records_seats_bought=array();
+        // while($row=$result_seats_bought->fetch_assoc())
+        // {
+        //     $records_seats_bought[]=$row;
+        // };
+        // $num_bookings = count($records_seats_bought); 
+
+        // // Since some bookings contains several seats, we need to separate them
+        // $all_seats_bought = array();
+        // $seats_list = array();
+        // for ($index=0; $index < $num_bookings; $index++) {
+        //     $seats = explode(" ", $records_seats_bought[$index]);
+        //     $num_seats = count($seats); 
+        //     for ($seats_index=0; $seats_index < $num_seats; $seats_index++) {
+
+        //     }
+        // }
+        
     ?>
     
     <script type="text/javascript">
         window.addEventListener('load', function() {
             let seats = document.getElementById('seats-main');
             let seatlist = document.createElement('div');
-            for (let i = 1; i < 10; i++) {
-                for (let t = 1; t < 9; t++) {
+            // Decide if a seat is available
+            for (let row = 1; row < 10; row++) {
+                for (let col = 1; col < 9; col++) {
                     let n = Math.random();
                     if (n < 0.1) {
-                        seatlist.innerHTML += `<div class="seat disableseat" data-num="${i}-${t}"></div>`;
+                        seatlist.innerHTML += `<div class="seat disableseat" data-num="${row}-${col}"></div>`;
                         
                     } else {
-                        seatlist.innerHTML += `<div class="seat" data-num="${i}-${t}"></div>`;
+                        seatlist.innerHTML += `<div class="seat" data-num="${row}-${col}"></div>`;
                         
                     }
                 }
@@ -88,7 +111,8 @@
                 p.setAttribute('class', 'none');
                 div.setAttribute('class', 'seat-num');
                 div.setAttribute('id', `${id.join('-')}`);
-                div.innerHTML = `Row ${id[0]} Seat ${id[1]}`;
+                // div.innerHTML = `Row ${id[0]} Seat ${id[1]}`;
+                div.innerHTML = `${id[0]}-${id[1]}`;
                 box.appendChild(div)
             }
             // delete
@@ -197,7 +221,7 @@
                     <li><a href="index.php" class="nav-model">Home</a></li>
                     <li><a href="movieList.php?Genre='all_select'&Region='all_select'&Year='all_select'" class="nav-model active">Movie</a></li>
                     <li><a href="cinemaList.php?Category='all_select'&Region='all_select'&Special='all_select'" class="nav-model">Theatre</a></li>
-                    <!-- <li><a href="#" class="nav-model">Forum</a></li> -->
+                    <li><a href="forum.php" class="nav-model">Forum</a></li>
                     <!-- <li><a href="cinemas.html" class="nav-model">Shop</a></li> -->
                 </ul>
             </div>
@@ -280,6 +304,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Ticket info on the right -->
             <div class="data">
                 <?php
                     $sql = "select * from movies where Name='$movie_name'";
