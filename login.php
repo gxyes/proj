@@ -104,6 +104,8 @@
             </div>
             <div class="search">
                 <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="Search for movies">
+                    <input class="submit" type="submit" value="">
                     <form action="search.php" method="post">
                         <input type="text" class="input" name="movie" placeholder="Search for movies">
                         <input class="submit" type="submit" value="">

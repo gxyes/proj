@@ -241,6 +241,9 @@
             </div>
             <div class="search">
                 <div type="text" class="searchinput">
+                    <input type="text" class="input" placeholder="Search for movies">
+                    <input class="submit" type="submit" value="">
+
                     <form action="search.php" method="post">
                         <input type="text" class="input" name="movie" placeholder="Search for movies">
                         <input class="submit" type="submit" value="">
@@ -1321,6 +1324,8 @@
             <a href="#" target="_blank">About MovieFever</a>
             &nbsp; · &nbsp; 
             <a href="mailto:guoxinying@xuefuguo.com" target="_blank">Contact Us</a>
+            &nbsp; · &nbsp; 
+            <a href="loginFeedback.php">Feedback</a>
         </p><br>
         <!-- <p class="friendly-links social-icons">
             <a href="#" target="_blank">Follow us</a>
