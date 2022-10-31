@@ -85,6 +85,10 @@
                 <div type="text" class="searchinput">
                     <input type="text" class="input" placeholder="Search for movies">
                     <input class="submit" type="submit" value="">
+                    <form action="search.php" method="post">
+                        <input type="text" class="input" name="movie" placeholder="Search for movies">
+                        <input class="submit" type="submit" value="">
+                    </form>
                 </div>
             </div>
             <div class="userimg">
@@ -334,6 +338,7 @@
                         echo("<span>Reviews</span>");
                         echo("<span>");
                         echo("<a href='loginComment.php?User=$current_user&Name=$movie_name'>Leave Comments</a>");
+                        echo("<a href='leavecomments.php?User=$current_user&Movie=$name'>Leave Comments</a>");
                         echo("</span>");
                         echo("</div>");
                     ?>

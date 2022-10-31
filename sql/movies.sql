@@ -140,7 +140,6 @@ create table feedback (
 );
 
 
-
 insert into movietimetable values (
     "Today", "10:45", "Hall 5", "Weathering With You1, Weathering With You2, Weathering With You3, Weathering With You5, Weathering With You6, Weathering With You7, My Neighbor Totoro1, My Neighbor Totoro3, My Neighbor Totoro4, My Neighbor Totoro5, HAHA, HAHA2, HAHA3"
 );
@@ -227,6 +226,17 @@ insert into movies values ("My Neighbor Totoro1", "comedy", "Adventure, Fantasy,
                             "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
                             "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88989, "2019", "20.6");
 
+
+insert into movies values ("My Neighbor Totoro1", "romance", "Adventure, Fantasy, Family", "Coming Soon", "us", 
+                            "86", "Hayao Miyazaki", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
+                            "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88989, "2020", "20.6");
+
+insert into movies values ("My Neighbor Totoro1", "comedy", "Adventure, Fantasy, Family", "Coming Soon", "us", 
+                            "86", "Hayao Miyazaki", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
+                            "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88989, "2019", "20.6");
+
 insert into movies values ("HAHA", "Animation", "Love", "Now Showing", "Japan", 
                             "113", "Makoto Shinkai", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
                             "193.8", "Weathering with You (Japanese: 天気の子) is a 2019 Japanese animated romantic fantasy film produced by CoMix Wave Films and distributed by Toho. It depicts a high school boy who runs away from his rural home to Tokyo and befriends an orphan girl who has the ability to control the weather. The film was commissioned in 2018, written and directed by Makoto Shinkai.",
@@ -266,6 +276,52 @@ insert into movies values ("My Neighbor Totoro3", "Animation", "Adventure, Fanta
                             "86", "Hayao Miyazaki", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
                             "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
                             "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88299, "08 Dec 2021", "8.6");
+
+
+insert into movies values ("HAHA3", "Animation", "Love", "Now Showing", "Japan", 
+                            "113", "Makoto Shinkai", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "Weathering with You (Japanese: 天気の子) is a 2019 Japanese animated romantic fantasy film produced by CoMix Wave Films and distributed by Toho. It depicts a high school boy who runs away from his rural home to Tokyo and befriends an orphan girl who has the ability to control the weather. The film was commissioned in 2018, written and directed by Makoto Shinkai.",
+                            "https://images.unsplash.com/photo-1659544623522-73ee0920af32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDMzfGhtZW52UWhVbXhNfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 22351, "02 Dec 2015", "9.6");
+
+insert into movies values ("Weathering With You7", "Animation", "Love", "Coming Soon", "Japan", 
+                            "113", "Makoto Shinkai", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "Weathering with You (Japanese: 天気の子) is a 2019 Japanese animated romantic fantasy film produced by CoMix Wave Films and distributed by Toho. It depicts a high school boy who runs away from his rural home to Tokyo and befriends an orphan girl who has the ability to control the weather. The film was commissioned in 2018, written and directed by Makoto Shinkai.",
+                            "https://images.unsplash.com/photo-1666792529510-9616222246d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 33172, "03 Oct 2008", "10.6");
+
+insert into directors values ("Makoto Shinkai", "Weathering With You1", "https://images.unsplash.com/photo-1666621203971-e2b529731169?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+
+insert into actors values ("Weathering With You1", "Kotaro Daigo", "Hodaka Morishima", "https://images.unsplash.com/photo-1657518196243-4f6cc79f69c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+insert into actors values ("Weathering With You1", "Nana Mori", "Hina Amano", "https://images.unsplash.com/photo-1665457621448-2d938dba54d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+insert into actors values ("Weathering With You1", "Shun Oguri", "Keisuke Suga", "https://images.unsplash.com/photo-1666153387073-e54cda2c4b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+
+insert into music values ("Music1", "https://www.ytmp3.cn/down/78367.mp3", "Weathering With You1", "Singer1");
+insert into music values ("Music2", "https://www.ytmp3.cn/down/78367.mp3", "Weathering With You1", "Singer2");
+
+insert into users values ("xinying", "123", "https://images.unsplash.com/photo-1666713838627-f92eaa40b379?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+insert into users values ("fuguo", "123", "https://images.unsplash.com/photo-1666153387073-e54cda2c4b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+
+insert into reviews values ("The film won a number of awards, including being selected as the Japanese entry for Best International Feature Film at the 92nd Academy Awards. It received four Annie Award nominations, including for Best Independent Animated Feature, tying Spirited Away and Millennium Actress (both 2001) for the most nominations for an anime film at the Annies (until it was surpassed by Hosoda's Belle (2021), with five nominations).",
+                            "xinying", "Weathering With You1", "2022-09-11 10:20:08", 3322);
+insert into reviews values ("t features the voices of Kotaro Daigo and Nana Mori, with animation direction by Atsushi Tamura, character design by Masayoshi Tanaka, and its orchestral score and soundtrack composed by Radwimps; the latter two previously collaborated with Shinkai on Your Name (2016).",
+                            "fuguo", "Weathering With You1", "2022-10-03 19:50:45", 3320);
+
+insert into currentuser values ("Null", "Null", "Null");
+
+insert into movielist values ("Weathering With You1", "Animation", "Love", "Now Showing", "Japan", 
+                            "113", "Makoto Shinkai", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "Weathering with You (Japanese: 天気の子) is a 2019 Japanese animated romantic fantasy film produced by CoMix Wave Films and distributed by Toho. It depicts a high school boy who runs away from his rural home to Tokyo and befriends an orphan girl who has the ability to control the weather. The film was commissioned in 2018, written and directed by Makoto Shinkai.",
+                            "https://images.unsplash.com/photo-1666713838627-f92eaa40b379?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 47876, "09 Nov 2022", "20.6");
+
+insert into movielist values ("My Neighbor Totoro1", "romance", "Adventure, Fantasy, Family", "Coming Soon", "China", 
+                            "86", "Hayao Miyazaki", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
+                            "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88989, "2020", "20.6");
+
+insert into movielist values ("My Neighbor Totoro1", "romance", "Adventure, Fantasy, Family", "Now Showing", "Japan", 
+                            "86", "Hayao Miyazaki", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
+                            "193.8", "My Neighbor Totoro (Japanese: となりのトトロ) is a 1988 Japanese animated fantasy film written and directed by Hayao Miyazaki and animated by Studio Ghibli for Tokuma Shoten. The film—which stars the voice actors Noriko Hidaka, Chika Sakamoto, and Hitoshi Takagi—tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in postwar rural Japan.",
+                            "https://images.unsplash.com/photo-1578888213392-88582bcfa6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4", 88989, "08 Dec 2020", "20.6");
+
 
 insert into movies values ("HAHA3", "Animation", "Love", "Now Showing", "Japan", 
                             "113", "Makoto Shinkai", "Hodaka Morishima, Hina Amano, Keisuke Suga", 
