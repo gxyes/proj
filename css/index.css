@@ -285,7 +285,7 @@ header .header-body .userlogin:hover {
   display: block;
 }
 header .header-body .userlogin .nologin {
-  display: none;
+  display: block;
 }
 header .header-body .userlogin .islogin {
   background-color: #ffffff;
@@ -412,19 +412,24 @@ header .header-body .userlogin .islogin a:nth-of-type(1):hover {
 .container .main .movies {
   width: 750px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex-wrap: wrap;
 }
 .container .main .movies .movies-model {
   width: 160px;
   height: 244px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   border: 1px solid #efefef;
+  float: left;
+  align-items: center;
 }
 .container .main .movies .movies-model img {
   width: 100%;
 }
 .container .main .movies .movies-model a {
-  width: 0;
+  align-self: center;
+  width: 100%;
 }
 .container .main .movies .movies-model button {
   width: 158px;
@@ -857,14 +862,20 @@ header .header-body .userlogin .islogin a:nth-of-type(1):hover {
   margin: 0 auto;
   min-width: 1200px;
   margin-top: 82px;
+  width: 100%;
 }
 .footer p {
+  text-align: center;
+  color: #ffffff;
+}
+.footer .email a {
   text-align: center;
   color: #ffffff;
 }
 .footer p a:hover {
   text-decoration: underline;
 }
+
 .footer .friendly-links a {
   color: #EF4238;
 }

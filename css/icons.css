@@ -1,0 +1,16 @@
+.social-icons {
+    margin: 0;
+    padding: 0;
+  }
+.social-icons a {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    color: #F95959;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+.social-icons a i {
+    font-size: 30px;
+  }

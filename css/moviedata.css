@@ -69,12 +69,16 @@
 
 .movie-top .movie-banner .movie-data .movie-btn a {
     display: inline-block;
-    width: 120px;
+    width: 100px;
     height: 36px;
     color: #ffffff;
     background: #756189;
     text-align: center;
     line-height: 36px;
+}
+
+.movie-top .movie-banner .movie-data .movie-btn a:hover {  
+    color: #ffffff;
 }
 
 .movie-top .movie-banner .movie-data .movie-btn a i {
@@ -146,7 +150,7 @@
 }
 
 .container .main .nav a {
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .container .main .tab-contral {
@@ -157,7 +161,7 @@
 
 .container .main .tab-contral .tab {
     display: inline-block;
-    font-size: 18px;
+    font-size: 12px;
     height: 36px;
     cursor: pointer;
 }
@@ -263,6 +267,31 @@
 .container .main .images .images-aside img {
     width: 126px;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main right right';
+      /* 'footer footer footer footer footer footer'; */
+    grid-gap: 10px; 
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, 300px);
+}
+
+.grid-container > div > a > img {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.images-main { grid-area: header; }
+.aside-img1 { grid-area: menu; }
+.aside-img2 { grid-area: main; }
+.aside-img3 { grid-area: right; }
 
 .container .main .comment {
     margin-bottom: 80px;
