@@ -1321,6 +1321,8 @@
             <a href="#" target="_blank">About MovieFever</a>
             &nbsp; · &nbsp; 
             <a href="mailto:guoxinying@xuefuguo.com" target="_blank">Contact Us</a>
+            &nbsp; · &nbsp; 
+            <a href="loginFeedback.php">Feedback</a>
         </p><br>
         <!-- <p class="friendly-links social-icons">
             <a href="#" target="_blank">Follow us</a>
