@@ -132,6 +132,15 @@ create table bookings (
     Seat varchar(255)
 );
 
+drop table if exists feedback;
+create table feedback (
+    Feedback varchar(255),
+    User varchar(255),
+    Time varchar(255)
+);
+
+
+
 insert into movietimetable values (
     "Today", "10:45", "Hall 5", "Weathering With You1, Weathering With You2, Weathering With You3, Weathering With You5, Weathering With You6, Weathering With You7, My Neighbor Totoro1, My Neighbor Totoro3, My Neighbor Totoro4, My Neighbor Totoro5, HAHA, HAHA2, HAHA3"
 );

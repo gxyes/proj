@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/moviedata.css">
     <link rel="stylesheet" href="css/clear.css">
-    <title>Comments</title>
+    <title>Feedback</title>
     <link rel="icon" href="images/cinema.png">
     <?php
         $servername = "localhost";
@@ -24,7 +24,7 @@
         }
 
         $name = $_GET["User"];
-        $movie = $_GET["Movie"];
+        // $movie = $_GET["Movie"];
 
         $sql = "select * from currentUser";
         $result = $db->query($sql);
@@ -123,32 +123,28 @@
                 <a href="index.php">
                     Home
                 </a> >
-                <a href="movies.php">
-                    Movies
-                </a> >
-                <a href="#">
-                    Leave Comments
+                <a href="feedback.php">
+                    Feedback
+                </a>
             </div>
             <!-- Comment Form -->
             <div class="comment" style="margin-top: 90px;">
                 <div class="intro" id="reviews" style="width: 100%">
                     <div class="intro-text" style="width: 100%">
-                        <span>Leave Comments</span>
+                        <span>Feedback</span>
                     </div>
                 </div>
                 <div style="width: 100%">
                     <div style="margin-top: 20px;">
                         <!-- <form action='addComments.php?User='$current_user'&Movie='$movie'' method='$_POST' style='width: 100%;'> -->
-                        <form action="addComments.php" method="POST" style="width: 100%;">
+                        <form action="addFeedback.php" method="POST" style="width: 100%;">
                             <h2 style="margin-bottom: 20px;">
-                                Please leave your comments for 
-                                <b><?php echo($movie);?></b>: 
+                                Please leave your feedback: 
                             </h2>
                             <br>
-                            <input type="hidden" id="user" name="user" value="<?php echo($name); ?>">
-                            <input type="hidden" id="movie_name" name="movie_name" value="<?php echo($movie); ?>">
+                            <input type="hidden" id="user" name="user" value="<?php echo($current_user); ?>">
                             <div style="margin-bottom: 20px;">
-                                <textarea id="comments" name="comments" rows="40" cols="50" required placeholder="Comments..." style="border:1px solid black; box-shadow: 0 0 10px #719ECE; width: 80%; margin: auto;"></textarea>
+                                <textarea id="feedback" name="feedback" rows="40" cols="50" required placeholder="Feedback..." style="border:1px solid black; box-shadow: 0 0 10px #719ECE; width: 80%; margin: auto;"></textarea>
                                 <br>
                             </div>
                             <input type="submit" value="Submit" style="font-size: 30px;">
