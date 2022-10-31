@@ -3,9 +3,11 @@
 }
 .container .nav-img {
   width: 1200px;
+  padding: 20px;
   margin: 0 auto;
+  margin-top: 50px;
   height: 200px;
-  background: url(../images/seatings-img.png);
+  background: url(../images/seatings-img-eng.png) no-repeat;
 }
 .container .main {
   width: 1200px;
@@ -28,7 +30,7 @@
   justify-content: space-between;
 }
 .container .main .seats-container .seatkinds ul .seatskind-model {
-  width: 90px;
+  width: 120px;
   display: inline-block;
 }
 .container .main .seats-container .seatkinds ul .seatskind-model img {
