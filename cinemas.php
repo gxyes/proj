@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/movies.css">
     <link rel="stylesheet" href="css/clear.css">
     <link rel="stylesheet" href="css/cinemas.css">
-    <title>Cinema</title>
+    <title>Theatre</title>
     <link rel="icon" href="images/cinema.png">
     <?php
         $gbcat = $_GET["gbcat"];

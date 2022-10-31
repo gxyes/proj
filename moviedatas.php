@@ -328,14 +328,16 @@
             <!-- Reviews -->
             <div class="comment">
                 <div class="intro" id="reviews">
-                    <div class="intro-text">
-                        <span>Reviews</span>
-                        <span>
-                            <a href="#">
-                                Leave Comments
-                            </a>
-                        </span>
-                    </div>
+                    <!-- <div class="intro-text"> -->
+                    <?php
+                        echo("<div class='intro-text'>");
+                        echo("<span>Reviews</span>");
+                        echo("<span>");
+                        echo("<a href='leavecomments.php?User=$current_user&Movie=$name'>Leave Comments</a>");
+                        echo("</span>");
+                        echo("</div>");
+                    ?>
+                    <!-- </div> -->
                 </div>
                 <div class="comment-body">
                     <ul>

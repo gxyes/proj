@@ -281,9 +281,9 @@ insert into users values ("xinying", "123", "https://images.unsplash.com/photo-1
 insert into users values ("fuguo", "123", "https://images.unsplash.com/photo-1666153387073-e54cda2c4b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
 
 insert into reviews values ("The film won a number of awards, including being selected as the Japanese entry for Best International Feature Film at the 92nd Academy Awards. It received four Annie Award nominations, including for Best Independent Animated Feature, tying Spirited Away and Millennium Actress (both 2001) for the most nominations for an anime film at the Annies (until it was surpassed by Hosoda's Belle (2021), with five nominations).",
-                            "xinying", "Weathering With You1", "09 Nov 2021", 3322);
+                            "xinying", "Weathering With You1", "2022-09-11 10:20:08", 3322);
 insert into reviews values ("t features the voices of Kotaro Daigo and Nana Mori, with animation direction by Atsushi Tamura, character design by Masayoshi Tanaka, and its orchestral score and soundtrack composed by Radwimps; the latter two previously collaborated with Shinkai on Your Name (2016).",
-                            "fuguo", "Weathering With You1", "11 Nov 2021", 3320);
+                            "fuguo", "Weathering With You1", "2022-10-03 19:50:45", 3320);
 
 insert into currentuser values ("Null", "Null", "Null");
 

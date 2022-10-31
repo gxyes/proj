@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/moviedata.css">
     <link rel="stylesheet" href="css/clear.css">
-    <title>Forum</title>
+    <title>Comments</title>
     <link rel="icon" href="images/cinema.png">
     <?php
         $servername = "localhost";
@@ -23,7 +23,8 @@
             exit;
         }
 
-        $name = $_GET["Name"];
+        $name = $_GET["User"];
+        $movie = $_GET["Movie"];
 
         $sql = "select * from currentUser";
         $result = $db->query($sql);
@@ -34,14 +35,6 @@
         //     print_r($_GET["current"]);
         // }
     ?>
-    <script type="text/javascript">
-        function buyMovie() {
-            var current_user = `<?php echo $current_user?>`;
-            var movie_name = `<?php echo $name?>`;
-            // console.log(movie_name);
-            window.location.href = "loginBuy.php?User=" + current_user + "&Name=" + movie_name;
-        }
-    </script>
 </head>
 
 <body>
@@ -130,75 +123,37 @@
                 <a href="index.php">
                     Home
                 </a> >
-                <a href="forum.php">
-                    Forum
-                </a>
+                <a href="movies.php">
+                    Movies
+                </a> >
+                <a href="#">
+                    Leave Comments
             </div>
-            <!-- Reviews -->
-            <div class="comment">
+            <!-- Comment Form -->
+            <div class="comment" style="margin-top: 90px;">
                 <div class="intro" id="reviews" style="width: 100%">
                     <div class="intro-text" style="width: 100%">
-                        <span>Reviews</span>
+                        <span>Leave Comments</span>
                     </div>
                 </div>
-                <div class="comment-body" style="width: 100%">
-                    <ul>
-                        <?php
-                            for ($index=0; $index<$num_commends; $index++)
-                            {
-                                $user_name = $records_commends[$index]["User"]; 
-                                $content = $records_commends[$index]["Content"]; 
-                                $timestamp = $records_commends[$index]["Time"];
-                                $likes = $records_commends[$index]["Likes"];
-                                $movie_name = $records_commends[$index]["Movie"];
-
-                                // Get avatar
-                                $sql_avatar = "select URL from users where Name='$user_name'";
-                                $result_avatar = $db->query($sql_avatar);
-                                $record_avatar = $result_avatar->fetch_assoc();
-                                $avatar = $record_avatar["URL"];
-
-                                // Get movie poster
-                                $sql_poster = "select URL from movies where Name='$movie_name'";
-                                $result_poster = $db->query($sql_poster);
-                                $record_poster = $result_poster->fetch_assoc();
-                                $poster = $record_poster["URL"];
-
-                                echo "<li class='comment-model' style='margin-bottom: 10px;'>";
-
-                                // Comment container start
-                                echo "<div>";
-
-                                // Movie name and poster
-                                echo "<div style='margin-right: 10px; float: left; width: 20%; text-align: center;'>";
-                                echo "<img style='width: 100%; display: inline-block;' src='$poster' alt=''><br>";
-                                echo "<p class='name' id='moviename' style='display: inline-block;'>$movie_name</p>";
-                                echo "</div>";
-                                // Comment details
-                                echo "<div class='comment-text' style='width: 800px; float: right;'>";
-                                echo "<div class='comment-main'>";
-                                echo "<span>";
-                                echo "<img class='comment-img' src='$avatar' alt='' style='margin-right: 10px;'>";
-                                echo "<span class='username'>$user_name</span>";
-                                echo "</span>";
-                                echo "<div>";
-                                echo "<span>";
-                                echo "<span class='comment-time'>$timestamp &nbsp&nbsp</span>";
-                                echo "<span class='comment-level'></span>";
-                                echo "</span>";
-                                echo "<a href='#'><i class='zan'></i><span>$likes</span></a>";
-                                echo "</div>";
-                                echo "</div>";
-                                echo "<p>$content</p>";
-                                echo "</div>";
-
-                                // Comment container end
-                                echo "</div>";
-
-                                echo "</li>";
-                            }
-                        ?>
-                    </ul>
+                <div style="width: 100%">
+                    <div style="margin-top: 20px;">
+                        <!-- <form action='addComments.php?User='$current_user'&Movie='$movie'' method='$_POST' style='width: 100%;'> -->
+                        <form action="addComments.php" method="POST" style="width: 100%;">
+                            <h2 style="margin-bottom: 20px;">
+                                Please leave your comments for 
+                                <b><?php echo($movie);?></b>: 
+                            </h2>
+                            <br>
+                            <input type="hidden" id="user" name="user" value="<?php echo($name); ?>">
+                            <input type="hidden" id="movie_name" name="movie_name" value="<?php echo($movie); ?>">
+                            <div style="margin-bottom: 20px;">
+                                <textarea id="comments" name="comments" rows="40" cols="50" required placeholder="Comments..." style="border:1px solid black; box-shadow: 0 0 10px #719ECE; width: 80%; margin: auto;"></textarea>
+                                <br>
+                            </div>
+                            <input type="submit" value="Submit" style="font-size: 30px;">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
