@@ -383,7 +383,7 @@
                 echo "</div>";
 
                 echo "<div class='buy-btn'>";
-                echo "<a href='cinemadatas.php?Name=$theatre_name&Movie='''> Buy </a>";
+                echo "<a href='loginCinemaBuy.php?Name=$theatre_name&User=$current_user& ='''> Buy </a>";
                 echo "</div>";
 
                 echo "</div>";
